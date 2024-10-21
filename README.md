@@ -1,0 +1,1 @@
+A intenção desse projeto é de entender o funcionamento e implementação de listas simplesmente encadeadas e duplamente encadeadas em um sistema de gerenciamento de contas bancarias. O objetivo desse programa é monitorar as entradas e saídas de valores das contas, mantendo um registro preciso e atualizado do saldo de cada conta.
