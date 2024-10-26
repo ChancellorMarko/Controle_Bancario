@@ -5,6 +5,8 @@
 #include <conio.h>
 #include <locale.h>
 
+#include "global.h"
+
 // Função para posicionar o cursor em um determinado ponto da tela
 void gotoxy(int x, int y)
 {
@@ -77,7 +79,9 @@ void tela()
     printf("MSG: ");
 }
 
-int main()
+// Limpar o campo de opções da tela
+void limpar_campo_opcao()
 {
-    
+    gotoxy(7, 23);
+    printf("                                                                        ");
 }
