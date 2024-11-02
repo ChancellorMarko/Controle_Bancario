@@ -48,10 +48,25 @@ void gotoxy(int x, int y);
 // Desenha a tela padrão
 void tela();
 
+// Desenhar a tela de informações
+Conteudo_Conta tela_cadastro_conta(Lista *lista);
+
 // Limpar o campo de opções
 void limpar_campo_opcao();
 
 // Desenhar a tela de cadastro de contas
 void Tela_Cadastro();
+
+// Desenhar a tela de inclusão de cadastros na lista
+void Tela_Inclusao();
+
+// Função que conta quantos cadastros estão presentes na lista
+int Contar_Elementos_Lista(Lista *lista);
+
+// Função que verifica se o código de funcionario já foi utilizado
+Apontador Verificar_Existencia(Lista *lista, int codigo_conta);
+
+// Função de castro de contas
+void Cadastro(Lista *lista, int posicao_na_lista);
 
 #endif

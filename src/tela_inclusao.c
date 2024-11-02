@@ -1,4 +1,4 @@
-// Tela de cadastro de conta
+// Tela de inclusão de conta
 
 // Bibliotecas
 #include <stdio.h>
@@ -9,7 +9,7 @@
 
 #include "global.h"
 
-void Tela_Cadastro(Lista *lista)
+void Tela_Inclusao(Lista *lista)
 {
     // Variaveis
     int opcao;
@@ -19,48 +19,45 @@ void Tela_Cadastro(Lista *lista)
         tela();
         
         gotoxy(32, 3);
-        printf("[Cadastro de conta]");
+        printf("[Inclusao de conta]");
 
         gotoxy(4, 6);
-        printf("1 - Incluir Conta.");
+        printf("1 - Incluir Conta (Final da Lista).");
         gotoxy(4, 8);
-        printf("2 - Alterar Conta.");
+        printf("2 - Incluir Conta (Inicio da Lista).");
         gotoxy(4, 10);
-        printf("3 - Consultar Conta.");
+        printf("3 - Incluir Conta (Uma posicao da Lista).");
         gotoxy(4, 12);
-        printf("4 - Remover Conta.");
+        printf("0 - Voltar.");
 
         do 
         {
             gotoxy(7, 23);
             printf("Escolha sua opcao: ");
             scanf("%d", &opcao);
-            if(opcao < 0 || opcao > 5)
+            if(opcao < 0 || opcao > 4)
             {
                 limpar_campo_opcao();
                 gotoxy(7, 23);
                 printf("Opcao invalida!");
                 limpar_campo_opcao();
             }
-        }while(opcao < 0 || opcao > 5);
+        }while(opcao < 0 || opcao > 4);
 
         switch (opcao) 
         {
             case 1:
-                Tela_Inclusao(lista);
+                Cadastro(lista, opcao);
                 break;
             case 2:
-                //TelaEdicao
+                Cadastro(lista, opcao);
                 break;
             case 3:
-                //TelaConsulta
-                break;
-            case 4:
-                //TelaRemocao
+                Cadastro(lista, opcao);
                 break;
             default:
                 break;
         }
 
-    }while(opcao =! 0);
+    }while(opcao != 0);
 }
