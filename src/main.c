@@ -18,14 +18,19 @@ int main()
     // Variaveis
     int opcao = 0;
 
+    //teste
+    Lista lista;
+
     do 
     {
         tela();
 
-        gotoxy(6, 6);
+        gotoxy(4, 6);
         printf("1 - Cadastro de conta.");
-        gotoxy(6, 8);
-        printf("0 - Sair.");
+        gotoxy(4, 8);
+        printf("2 - Movimentacao financeira.");
+        gotoxy(4, 10);
+        printf("3 - Sair.");
         
         do 
         {
@@ -44,11 +49,15 @@ int main()
         switch (opcao) 
         {
             case 1:
+                Tela_Cadastro(lista);
+                break;
+            case 2:
+                //financeiro
                 break;
             default:
                 break;
         }
-    }while (opcao != 0 );
+    }while (opcao != 0);
 
     return 0;
 }

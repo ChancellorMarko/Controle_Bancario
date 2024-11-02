@@ -1,3 +1,5 @@
+// Padrões de tela para serem utilizados
+
 // Bibliotecas
 #include <stdio.h>
 #include <stdlib.h>
@@ -69,11 +71,11 @@ void tela()
     gotoxy(02, 02);
     printf("UNICV");
 
-    gotoxy(61, 02);
-    printf("Estrutura de dados");
+    gotoxy(59, 02);
+    printf("Gerenciador Bancario");
 
-    gotoxy(67, 03);
-    printf("Marcos Andre");
+    gotoxy(64, 03);
+    printf("Milena e Marcos");
 
     gotoxy(02, 23);
     printf("MSG: ");

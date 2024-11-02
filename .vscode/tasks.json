@@ -7,7 +7,7 @@
             "command": "gcc",
             "args": [
                 "-g",
-                "${workspaceFolder}/*.c",
+                "${cwd}/src/*.c",
                 "-o",
                 "${workspaceFolder}/output/bancario"
             ],
@@ -23,7 +23,7 @@
         {
             "label": "Executar Programa",
             "type": "shell",
-            "command": "${workspaceFolder}/output/bancario",
+            "command": "${cwd}/src/output/bancario",
             "group": {
                 "kind": "test",
                 "isDefault": true
