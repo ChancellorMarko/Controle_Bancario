@@ -12,7 +12,7 @@
 void Tela_Cadastro(Lista *lista)
 {
     // Variaveis
-    int opcao;
+    int opcao = 0;
 
     do 
     {

@@ -49,7 +49,7 @@ void gotoxy(int x, int y);
 void tela();
 
 // Desenhar a tela de informações
-Conteudo_Conta tela_cadastro_conta(Lista *lista);
+void tela_cadastro_conta();
 
 // Limpar o campo de opções
 void limpar_campo_opcao();
@@ -68,5 +68,8 @@ Apontador Verificar_Existencia(Lista *lista, int codigo_conta);
 
 // Função de castro de contas
 void Cadastro(Lista *lista, int posicao_na_lista);
+
+// Escrever mensagem no campo destina a mensagens
+void escrever_msg(char* mensagem[70]);
 
 #endif

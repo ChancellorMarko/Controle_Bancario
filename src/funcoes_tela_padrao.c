@@ -89,86 +89,36 @@ void limpar_campo_opcao()
 }
 
 // Desenhar a tela de informações
-Conteudo_Conta tela_cadastro_conta(Lista *lista)
+void tela_cadastro_conta()
 {
-    Conteudo_Conta temporario;
-    Apontador Auxilar_Verificacao; // Variável para auxiliar na verificação do código do funcionário
-
-    do
-    {
-        gotoxy(6,6);
-        printf("Codigo da Conta.....: ");
-        scanf("%d", &temporario.codigo_conta);
-        Auxilar_Verificacao = Verificar_Existencia(lista, temporario.codigo_conta);
-        if(Auxilar_Verificacao != NULL)
-        {
-            gotoxy(07, 23);
-            printf("Codigo de conta ja cadastrado. Digite novamente");
-            getch();
-            limpar_campo_opcao();
-            gotoxy(28, 8);
-            printf("                              ");
-        }
-    }while(Auxilar_Verificacao != NULL);
+    gotoxy(6,6);
+    printf("Codigo da Conta.....: ");
 
     gotoxy(6,8);
     printf("1 - Nome do Banco...: ");
-    fflush(stdin);
-    fgets(temporario.banco, 50, stdin);
 
     gotoxy(6,10);
     printf("2 - Agencia.........: ");
-    fflush(stdin);
-    fgets(temporario.agencia, 10, stdin);
 
     gotoxy(6,12);
     printf("3 - Numero da Conta.: ");
-    fflush(stdin);
-    fgets(temporario.numero_conta, 20, stdin);
 
     gotoxy(6,14);
     printf("4 - Tipo da Conta...: ");
-    fflush(stdin);
-    fgets(temporario.tipo_conta, 20, stdin);
 
-    do
-    {
     gotoxy(6,16);
     printf("5 - Saldo da Conta..: R$");
-    scanf("%f", &temporario.vl_saldo);
-    if(temporario.vl_saldo < 0)
-    {
-        limpar_campo_opcao();
-        gotoxy(07, 23);
-        printf("Saldo invalido. Digite novamente.");
-        getch();
-        limpar_campo_opcao();
-        gotoxy(24, 16);
-        printf("                          ");
-    }
-    }while(temporario.vl_saldo < 0);
 
-    do
-    {
     gotoxy(6,18);
     printf("6 - Limite da Conta.: R$");
-    scanf("%f", &temporario.vl_limite);
-    if(temporario.vl_limite < 0)
-    {
-        limpar_campo_opcao();
-        gotoxy(07, 23);
-        printf("Limite invalido. Digite novamente.");
-        getch();
-        limpar_campo_opcao();
-        gotoxy(24, 18);
-        printf("                          ");
-    }
-    }while(temporario.vl_limite < 0);
 
     gotoxy(6,20);
     printf("6 - Status da Conta.: ");
-    fflush(stdin);
-    fgets(temporario.status, 10, stdin);
+}
 
-    return temporario;
+// Escrever mensagem no campo destina a mensagens
+void escrever_msg(char* mensagem[70])
+{
+    gotoxy(7, 23);
+    printf("%s", mensagem);
 }
