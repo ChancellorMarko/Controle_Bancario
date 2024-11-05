@@ -55,10 +55,13 @@ void tela_cadastro_conta();
 void limpar_campo_opcao();
 
 // Desenhar a tela de cadastro de contas
-void Tela_Cadastro();
+void Tela_Cadastro(Lista *lista);
 
 // Desenhar a tela de inclusão de cadastros na lista
-void Tela_Inclusao();
+void Tela_Inclusao(Lista *lista);
+
+// Desenhar a tela de alteração de itens na lista
+void Tela_Alteracao(Lista *lista);
 
 // Função que conta quantos cadastros estão presentes na lista
 int Contar_Elementos_Lista(Lista *lista);
@@ -71,5 +74,20 @@ void Cadastro(Lista *lista, int posicao_na_lista);
 
 // Escrever mensagem no campo destina a mensagens
 void escrever_msg(char* mensagem[70]);
+
+// Função para limpar a memória depois de finalizar o programa
+void LimparMemoria(Lista *lista);
+
+// Função que inicializa uma lista
+Lista InicializarLista();
+
+// Função Responsável por adicionar contas a lista
+void Adicionar_Conta(Lista *lista, Conteudo_Conta conteudo);
+
+// Criar o arquivo com os dados da lista
+void SalvarLista(Lista *lista);
+
+// Ler o arquivo com os dados da lista
+Lista LerLista();
 
 #endif

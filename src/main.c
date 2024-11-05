@@ -18,8 +18,9 @@ int main()
     // Variaveis
     int opcao = 0;
 
-    //teste
+    // Criar lista
     Lista lista;
+    lista = LerLista();
 
     do 
     {
@@ -49,7 +50,7 @@ int main()
         switch (opcao) 
         {
             case 1:
-                Tela_Cadastro(lista);
+                Tela_Cadastro(&lista);
                 break;
             case 2:
                 //financeiro
@@ -58,6 +59,12 @@ int main()
                 break;
         }
     }while (opcao != 0);
+
+    // Salvar Lista
+    SalvarLista(&lista);
+
+    // Limpar Memória
+    LimparMemoria(&lista);
 
     return 0;
 }

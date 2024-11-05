@@ -25,7 +25,7 @@ void tela()
     int col;
 
     system("cls");
-    system("color 7C");
+    system("color CE");
     for (lin = 1; lin < 25; lin++)
     {
         gotoxy(01, lin);
