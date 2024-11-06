@@ -1,11 +1,11 @@
-// Funções de inclusão de conta
-
-// Bibliotecas
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
-#include <conio.h>
-#include <locale.h>
+/*
+Autor: Marcos.
+Data: 28/10/24.
+Membros: 
+    1 - 178292-2024
+    2 - 177020-2024
+Descrição: Programa para gerenciamento de varias contas bancarias.
+*/
 
 #include "global.h"
 
@@ -100,7 +100,7 @@ void Cadastro(Lista *lista, int opcao_lista)
         {
             gotoxy(6,16);
             printf("5 - Saldo da Conta..: R$");
-            scanf("%f", &temporario.vl_saldo);
+            scanf("%lf", &temporario.vl_saldo);
             if(temporario.vl_saldo < 0)
             {
                 limpar_campo_opcao();
@@ -117,7 +117,7 @@ void Cadastro(Lista *lista, int opcao_lista)
         {
         gotoxy(6,18);
         printf("6 - Limite da Conta.: R$");
-        scanf("%f", &temporario.vl_limite);
+        scanf("%lf", &temporario.vl_limite);
         if(temporario.vl_limite < 0)
         {
             limpar_campo_opcao();

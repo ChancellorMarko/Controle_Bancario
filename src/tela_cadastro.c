@@ -1,11 +1,11 @@
-// Tela de cadastro de conta
-
-// Bibliotecas
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
-#include <conio.h>
-#include <locale.h>
+/*
+Autor: Marcos.
+Data: 28/10/24.
+Membros: 
+    1 - 178292-2024
+    2 - 177020-2024
+Descrição: Programa para gerenciamento de varias contas bancarias.
+*/
 
 #include "global.h"
 
@@ -29,6 +29,8 @@ void Tela_Cadastro(Lista *lista)
         printf("3 - Consultar Conta.");
         gotoxy(4, 12);
         printf("4 - Remover Conta.");
+        gotoxy(4, 14);
+        printf("0 - Voltar.");
 
         do 
         {
@@ -59,6 +61,7 @@ void Tela_Cadastro(Lista *lista)
                 //TelaRemocao
                 break;
             default:
+                return;
                 break;
         }
 

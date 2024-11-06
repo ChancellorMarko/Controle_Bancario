@@ -1,3 +1,12 @@
+/*
+Autor: Marcos.
+Data: 28/10/24.
+Membros: 
+    1 - 178292-2024
+    2 - 177020-2024
+Descrição: Programa para gerenciamento de varias contas bancarias.
+*/
+
 #ifndef GLOBAL_H
 #define GLOBAL_H
 

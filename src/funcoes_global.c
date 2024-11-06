@@ -1,11 +1,11 @@
-// Funções globais
-
-// Bibliotecas
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
-#include <conio.h>
-#include <locale.h>
+/*
+Autor: Marcos.
+Data: 28/10/24.
+Membros: 
+    1 - 178292-2024
+    2 - 177020-2024
+Descrição: Programa para gerenciamento de varias contas bancarias.
+*/
 
 #include "global.h"
 
@@ -129,7 +129,7 @@ void SalvarLista(Lista *lista)
         while(auxiliar != NULL)
         {
             // Escrever o conteúdo de cada cadastro um por um no arquivo
-            fwrite(&auxiliar->conteudo, sizeof(conteudo_funcionario), 1, banco_de_dados);
+            fwrite(&auxiliar->conteudo, sizeof(Conteudo_Conta), 1, banco_de_dados);
             auxiliar = auxiliar->proximo; // ir para o proximo cadastro
         }
 
@@ -172,7 +172,7 @@ Lista LerLista()
         while (fread(&conteudo_auxiliar, sizeof(Conteudo_Conta), 1, banco_de_dados)) 
         {
             // Adicionar conteudos lido em posições da lista (sempre no final mantendo a ordem anterior)
-            AdicionarFuncionario(&lista, conteudo_auxiliar);    
+            Adicionar_Conta(&lista, conteudo_auxiliar);    
         }
     }
 

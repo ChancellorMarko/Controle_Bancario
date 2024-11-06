@@ -1,6 +1,9 @@
 /*
-Autores: Milena e Marcos.
+Autor: Marcos.
 Data: 22/10/24.
+Membros: 
+    1 - 178292-2024
+    2 - 177020-2024
 Descrição: Programa para gerenciamento de varias contas bancarias.
 */
 
@@ -38,14 +41,14 @@ int main()
         gotoxy(7, 23);
         printf("Escolha sua opcao: ");
         scanf("%d", &opcao);
-        if(opcao < 0 || opcao > 6)
+        if(opcao < 0 || opcao > 3)
         {
             limpar_campo_opcao();
             gotoxy(7, 23);
             printf("Opcao invalida!");
             limpar_campo_opcao();
         }
-        }while(opcao < 0 || opcao > 6);
+        }while(opcao < 0 || opcao > 3);
 
         switch (opcao) 
         {
@@ -55,10 +58,15 @@ int main()
             case 2:
                 //financeiro
                 break;
+            case 3:
+                limpar_campo_opcao();
+                escrever_msg("Saindo...");
+                getch();
+                break;
             default:
                 break;
         }
-    }while (opcao != 0);
+    }while (opcao != 3);
 
     // Salvar Lista
     SalvarLista(&lista);

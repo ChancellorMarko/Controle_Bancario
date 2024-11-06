@@ -1,11 +1,11 @@
-// Tela de alteração de itens na lista
-
-// Bibliotecas
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
-#include <conio.h>
-#include <locale.h>
+/*
+Autor: Marcos.
+Data: 28/10/24.
+Membros: 
+    1 - 178292-2024
+    2 - 177020-2024
+Descrição: Programa para gerenciamento de varias contas bancarias.
+*/
 
 #include "global.h"
 
