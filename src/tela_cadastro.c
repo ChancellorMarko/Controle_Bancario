@@ -52,7 +52,7 @@ void Tela_Cadastro(Lista *lista)
                 Tela_Inclusao(lista);
                 break;
             case 2:
-                Tela_Alteracao(lista, opcao);
+                Tela_Alteracao(lista);
                 break;
             case 3:
                 //TelaConsulta

@@ -70,7 +70,7 @@ void Tela_Cadastro(Lista *lista);
 void Tela_Inclusao(Lista *lista);
 
 // Desenhar a tela de alteração de itens na lista
-void Tela_Alteracao(Lista *lista, int codigo);
+void Tela_Alteracao(Lista *lista);
 
 // Função que conta quantos cadastros estão presentes na lista
 int Contar_Elementos_Lista(Lista *lista);

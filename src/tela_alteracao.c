@@ -9,7 +9,7 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 
 #include "global.h"
 
-void Tela_Alteracao(Lista *lista, int codigo)
+void Tela_Alteracao(Lista *lista)
 {
     Apontador auxiliar_verificacao;
     int resposta = 0;
@@ -105,7 +105,7 @@ void Tela_Alteracao(Lista *lista, int codigo)
                             break;
                         case 4:
                             gotoxy(6,14);
-                            printf("4 - Tipo da Conta...: %s.");
+                            printf("4 - Tipo da Conta...: ");
                             gotoxy(28, 14);
                             printf("                                              ");
                             gotoxy(28, 14);
@@ -115,13 +115,13 @@ void Tela_Alteracao(Lista *lista, int codigo)
                         case 5:
                             do
                             {
-                                gotoxy(6,14);
-                                printf("4 - Saldo da Conta..: R$%.2lf.");
+                                gotoxy(6,16);
+                                printf("4 - Saldo da Conta..: R$");
                                 gotoxy(28, 16);
                                 printf("                                              ");
                                 gotoxy(28, 16);
                                 fflush(stdin);
-                                scanf("%d", &auxiliar_verificacao->conteudo.vl_saldo);
+                                scanf("%lf", &auxiliar_verificacao->conteudo.vl_saldo);
                                 if(auxiliar_verificacao->conteudo.vl_saldo < 0)
                                     {
                                         limpar_campo_opcao();
@@ -137,11 +137,11 @@ void Tela_Alteracao(Lista *lista, int codigo)
                             do
                             {
                                 gotoxy(10,18);
-                                printf("6 - Limite da Conta.: R$%.2lf.");
+                                printf("6 - Limite da Conta.: R$");
                                 gotoxy(34, 18);
                                 printf("                                            ");
                                 gotoxy(34, 18);
-                                scanf("%f", &auxiliar_verificacao->conteudo.vl_limite);
+                                scanf("%lf", &auxiliar_verificacao->conteudo.vl_limite);
                                 if(auxiliar_verificacao->conteudo.vl_limite < 0)
                                 {
                                     limpar_campo_opcao();
@@ -155,7 +155,7 @@ void Tela_Alteracao(Lista *lista, int codigo)
                             break;
                         case 7:
                             gotoxy(6,20);
-                            printf("4 - Status da Conta.: R$%s.");
+                            printf("4 - Status da Conta.: ");
                             gotoxy(28, 20);
                             printf("                                              ");
                             gotoxy(28, 20);
