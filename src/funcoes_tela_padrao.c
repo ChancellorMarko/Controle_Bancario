@@ -89,31 +89,31 @@ void limpar_campo_opcao()
 }
 
 // Desenhar a tela de informações
-void tela_cadastro_conta()
+void tela_conta(Item *ItemLista)
 {
     gotoxy(6,6);
-    printf("Codigo da Conta.....: ");
+    printf("Codigo da Conta.....: %d.", ItemLista->conteudo.codigo_conta);
 
     gotoxy(6,8);
-    printf("1 - Nome do Banco...: ");
+    printf("1 - Nome do Banco...: %s.", ItemLista->conteudo.banco);
 
     gotoxy(6,10);
-    printf("2 - Agencia.........: ");
+    printf("2 - Agencia.........: %s.", ItemLista->conteudo.agencia);
 
     gotoxy(6,12);
-    printf("3 - Numero da Conta.: ");
+    printf("3 - Numero da Conta.: %s.", ItemLista->conteudo.numero_conta);
 
     gotoxy(6,14);
-    printf("4 - Tipo da Conta...: ");
+    printf("4 - Tipo da Conta...: %s.", ItemLista->conteudo.tipo_conta);
 
     gotoxy(6,16);
-    printf("5 - Saldo da Conta..: R$");
+    printf("5 - Saldo da Conta..: R$%.2lf.", ItemLista->conteudo.vl_saldo);
 
     gotoxy(6,18);
-    printf("6 - Limite da Conta.: R$");
+    printf("6 - Limite da Conta.: R$%.2lf.", ItemLista->conteudo.vl_limite);
 
     gotoxy(6,20);
-    printf("6 - Status da Conta.: ");
+    printf("6 - Status da Conta.: %s.", ItemLista->conteudo.status);
 }
 
 // Escrever mensagem no campo destina a mensagens
