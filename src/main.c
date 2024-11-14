@@ -21,9 +21,12 @@ int main()
     // Variaveis
     int opcao = 0;
 
-    // Criar lista
+    // Criar lista de contas
     Lista lista;
     lista = LerLista();
+
+    // Criar lista de movimentação financeiras
+    //Lista
 
     do 
     {
@@ -56,7 +59,7 @@ int main()
                 Tela_Cadastro(&lista);
                 break;
             case 2:
-                //financeiro
+                Tela_Financeiro(&lista);
                 break;
             case 3:
                 limpar_campo_opcao();

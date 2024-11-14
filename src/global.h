@@ -17,7 +17,7 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 #include <conio.h>
 #include <locale.h>
 
-// --------------- Estruturas de dados --------------- 
+// --------------- Estrutura de dados - Conta ----------------
 
 // Definir conteudo da conta
 typedef struct 
@@ -49,7 +49,38 @@ typedef struct
     Apontador ultimo;
 } Lista;
 
-// --------------------------------------------------- 
+// --------------- Estrutura de dados - Financeiro ----------------
+
+// Definir conteudo financeiro
+typedef struct 
+{
+    int sequencial;
+    int codigo_conta;
+    char dt_movimento[11];
+    char tp_movimentacao[15];
+    double vl_movimento;
+    double vl_saldo;
+} Conteudo_Financeiro;
+
+// Definir o apontador que aponta para o item financeiro
+typedef struct Item *Apontador;
+
+// Definir o tipo de item da lista financeira
+typedef struct ItemFinanceiro
+{
+    Conteudo_Financeiro conteudo;
+    Apontador proximo;
+    Apontador anterior;
+} ItemFinanceiro;
+
+// Definir lista: inicio e fim
+typedef struct
+{
+    Apontador primeiro;
+    Apontador ultimo;
+} ListaFinanceira;
+
+// ------------------------------------------------------------ 
 
 // Função para posicionar o cursor em um determinado ponto da tela
 void gotoxy(int x, int y);
@@ -98,5 +129,8 @@ void SalvarLista(Lista *lista);
 
 // Ler o arquivo com os dados da lista
 Lista LerLista();
+
+// Desenha a tela de movimentação financeira
+void Tela_Financeiro(Lista *lista);
 
 #endif

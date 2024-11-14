@@ -113,25 +113,10 @@ void Tela_Alteracao(Lista *lista)
                             fgets(auxiliar_verificacao->conteudo.tipo_conta, 50, stdin);
                             break;
                         case 5:
-                            do
-                            {
-                                gotoxy(6,16);
-                                printf("4 - Saldo da Conta..: R$");
-                                gotoxy(28, 16);
-                                printf("                                              ");
-                                gotoxy(28, 16);
-                                fflush(stdin);
-                                scanf("%lf", &auxiliar_verificacao->conteudo.vl_saldo);
-                                if(auxiliar_verificacao->conteudo.vl_saldo < 0)
-                                    {
-                                        limpar_campo_opcao();
-                                        escrever_msg("Valor invalido! Digite novamente...");
-                                        getch();
-                                        limpar_campo_opcao();
-                                        gotoxy(34, 20);
-                                        printf("                                            ");
-                                    }
-                            }while(auxiliar_verificacao->conteudo.vl_saldo < 0);
+                            limpar_campo_opcao();
+                            escrever_msg("Operacao nao permitida! Tente outro campo.");
+                            getch();
+                            limpar_campo_opcao();
                             break;
                         case 6:
                             do

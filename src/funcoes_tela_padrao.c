@@ -7,9 +7,6 @@ Membros:
 Descrição: Programa para gerenciamento de varias contas bancarias.
 */
 
-// testando git - milena
-
-
 #include "global.h"
 
 
