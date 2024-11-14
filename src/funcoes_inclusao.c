@@ -49,7 +49,7 @@ void Cadastro(Lista *lista, int opcao_lista)
         {
             limpar_campo_opcao();
             gotoxy(7, 23);
-            printf("Nao existem intens na lista! Voltando a tela inicial...");
+            printf("Nao existem itens na lista! Voltando a tela inicial...");
             getch();
             return;
         }

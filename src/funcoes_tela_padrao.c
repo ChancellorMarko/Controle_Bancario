@@ -9,6 +9,7 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 
 #include "global.h"
 
+
 // Função para posicionar o cursor em um determinado ponto da tela
 void gotoxy(int x, int y)
 {
