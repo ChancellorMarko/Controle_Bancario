@@ -47,7 +47,7 @@ void Tela_Financeiro(Lista *lista)
         switch (opcao) 
         {
             case 1:
-                // Movimentação de credito e débito
+                // Tela de movimentação financeira
                 break;
             case 2:
                 // Consultar de movimentações

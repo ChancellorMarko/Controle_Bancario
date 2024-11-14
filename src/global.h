@@ -133,4 +133,7 @@ Lista LerLista();
 // Desenha a tela de movimentação financeira
 void Tela_Financeiro(Lista *lista);
 
+// Desenha a tela de movimentação financeira
+void tela_movimentacao_Financeira();
+
 #endif

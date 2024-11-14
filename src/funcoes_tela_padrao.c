@@ -122,3 +122,9 @@ void escrever_msg(char* mensagem[70])
     gotoxy(7, 23);
     printf("%s", mensagem);
 }
+
+// Desenha a tela de movimentação financeira
+void tela_movimentacao_Financeira()
+{
+    // Logica da tela
+}
