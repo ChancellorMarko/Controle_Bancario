@@ -7,6 +7,7 @@ Membros:
 Descrição: Programa para gerenciamento de varias contas bancarias.
 */
 
+// Bibliotecas
 #include "global.h"
 
 // Função que conta quantos cadastros estão presentes na lista

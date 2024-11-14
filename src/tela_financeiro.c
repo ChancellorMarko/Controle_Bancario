@@ -10,8 +10,12 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 // Bibliotecas
 #include "global.h"
 
+// Desenha a tela de movimentação financeira
 void Tela_Financeiro(Lista *lista)
 {
+    // Variáveis
+    int opcao = 0;
+
     do 
     {
         tela();
@@ -20,7 +24,7 @@ void Tela_Financeiro(Lista *lista)
         printf("[Movimentacao Financeira]");
 
         gotoxy(4, 6);
-        printf("1 - Movimentação de Credito e Debito.");
+        printf("1 - Movimentacao de Credito e Debito.");
         gotoxy(4, 8);
         printf("2 - Cunsultar movimentacoes bancarias.");
         gotoxy(4, 10);
