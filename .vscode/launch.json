@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "z:/EstruturaDeDados/Programas/TrabalhoFinal/Sistema_Gerenciador_de_Contas_Bancarias",
-      "program": "z:/EstruturaDeDados/Programas/TrabalhoFinal/Sistema_Gerenciador_de_Contas_Bancarias/build/Debug/outDebug",
+      "cwd": "z:/EstruturaDeDados/Programas/TrabalhoFinal/Sistema_Gerenciador_de_Contas_Bancarias/src",
+      "program": "z:/EstruturaDeDados/Programas/TrabalhoFinal/Sistema_Gerenciador_de_Contas_Bancarias/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -3,3 +3,7 @@
 .vscode/settings.json
 .vscode/launch.json
 .vscode/settings.json
+
+# Arquivos compilados
+DADOS.dat
+bin/main.exe
