@@ -127,5 +127,53 @@ void escrever_msg(char* mensagem[70])
 // Desenha a tela de movimentação financeira
 void tela_movimentacao_Financeira()
 {
-    // Logica da tela
+    // Variaveis
+    int x;
+
+    tela();
+
+    gotoxy(2, 6);
+    for(x = 0; x <= 76; x++)
+    {
+        printf("-");
+    }
+
+    gotoxy(1, 6);
+    printf("+");
+    gotoxy(79, 6);
+    printf("+");
+
+    // Campo do código da conta
+    gotoxy(2, 5);
+    printf("Codigo da Conta: ");
+
+    // Parte da data
+    gotoxy(2, 7);
+    printf("Data:     |");
+    gotoxy(2, 8);
+    printf("----------|");
+
+    // Parte do Destinatário
+    gotoxy(13, 7);
+    printf("Destinatario:                 |");
+    gotoxy(13, 8);
+    printf("------------------------------|");
+
+    // Parte do tipo de movimentação
+    gotoxy(44, 7);
+    printf("Tipo:   |");
+    gotoxy(44, 8);
+    printf("--------|");
+
+    // parte do valor
+    gotoxy(53, 7);
+    printf("Vl.Trans:    |");
+    gotoxy(53, 8);
+    printf("-------------|");
+
+    // Parte do saldo ao final da transação
+    gotoxy(67, 7);
+    printf("Saldo:      ");
+    gotoxy(67, 8);
+    printf("------------");
 }

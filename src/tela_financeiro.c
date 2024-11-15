@@ -50,7 +50,7 @@ void Tela_Financeiro(Lista *lista)
                 // Tela de movimentação financeira
                 break;
             case 2:
-                // Consultar de movimentações
+                Consulta_Contas_Bancarias(lista);
                 break;
             default:
                 return;
