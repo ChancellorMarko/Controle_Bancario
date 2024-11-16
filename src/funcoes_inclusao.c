@@ -113,23 +113,10 @@ void Cadastro(Lista *lista, int opcao_lista)
             }
         }while(temporario.vl_saldo < 0);
 
-        do
-        {
         gotoxy(6,18);
-        printf("6 - Limite da Conta.: R$");
-        scanf("%lf", &temporario.vl_limite);
-        if(temporario.vl_limite < 0)
-        {
-            limpar_campo_opcao();
-            gotoxy(07, 23);
-            printf("Limite invalido. Digite novamente.");
-            getch();
-            limpar_campo_opcao();
-            gotoxy(24, 18);
-            printf("                          ");
-        }
-        }while(temporario.vl_limite < 0);
+        printf("6 - Limite da Conta.: R$%.2lf", Serasa(&temporario));
 
+        // Salvar status da conta
         gotoxy(6,20);
         printf("6 - Status da Conta.: ");
         fflush(stdin);

@@ -38,19 +38,19 @@ void Tela_Alteracao(Lista *lista)
 
             limpar_campo_opcao();
             gotoxy(7, 23);
-            printf("Digite o codigo da conta para edita-la: ");
+            printf("Digite o codigo da conta para edita-la (0 - Sair): ");
             scanf("%d", &resposta);
             auxiliar_verificacao = Verificar_Existencia(lista, resposta);
-            if(auxiliar_verificacao == NULL)
+            if (resposta == 0) 
+            {
+                return;
+            }
+            else if(auxiliar_verificacao == NULL)
             {
                 limpar_campo_opcao();
                 escrever_msg("Erro ao tentar encontrar os dados");
                 getch();
                 limpar_campo_opcao();
-            }
-            else if (auxiliar_verificacao == 0) 
-            {
-                return;
             }
             else 
             {
@@ -121,11 +121,11 @@ void Tela_Alteracao(Lista *lista)
                         case 6:
                             do
                             {
-                                gotoxy(10,18);
+                                gotoxy(6,18);
                                 printf("6 - Limite da Conta.: R$");
-                                gotoxy(34, 18);
+                                gotoxy(30, 18);
                                 printf("                                            ");
-                                gotoxy(34, 18);
+                                gotoxy(30, 18);
                                 scanf("%lf", &auxiliar_verificacao->conteudo.vl_limite);
                                 if(auxiliar_verificacao->conteudo.vl_limite < 0)
                                 {

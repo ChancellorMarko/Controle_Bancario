@@ -22,11 +22,12 @@ int main()
     int opcao = 0;
 
     // Criar lista de contas
-    Lista lista;
-    lista = LerLista();
+    Lista lista_co;
+    lista_co = LerLista();
 
     // Criar lista de movimentação financeiras
-    //Lista
+    ListaFinanceira Lista_fi;
+    Lista_fi = LerListaFinanceira();
 
     do 
     {
@@ -56,10 +57,10 @@ int main()
         switch (opcao) 
         {
             case 1:
-                Tela_Cadastro(&lista);
+                Tela_Cadastro(&lista_co);
                 break;
             case 2:
-                Tela_Financeiro(&lista);
+                Tela_Financeiro(&Lista_fi);
                 break;
             case 3:
                 limpar_campo_opcao();
@@ -71,11 +72,17 @@ int main()
         }
     }while (opcao != 3);
 
-    // Salvar Lista
-    SalvarLista(&lista);
+    // Salvar Lista Contas
+    SalvarLista(&lista_co);
 
-    // Limpar Memória
-    LimparMemoria(&lista);
+    // Limpar Memória Contas
+    Limpar_Mem_Contas(&lista_co);
+
+    // Salvar Lista Financeira
+    SalvarListaFinanceira(&Lista_fi);
+
+    //Limpar Memória Financeira
+    Limpar_Mem_Finan(&Lista_fi);
 
     return 0;
 }
