@@ -133,4 +133,10 @@ Lista LerLista();
 // Desenha a tela de movimentação financeira
 void Tela_Financeiro(Lista *lista);
 
+// Desenha a tela de movimentação financeira
+void tela_movimentacao_Financeira();
+
+// Metodo que pede o código de uma conta e escreve todas as movimentações bancarias feitas por ela
+void Consulta_Contas_Bancarias(Lista *lista);
+
 #endif
