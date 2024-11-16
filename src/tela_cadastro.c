@@ -58,7 +58,7 @@ void Tela_Cadastro(Lista *lista)
                 //TelaConsulta
                 break;
             case 4:
-                //TelaRemocao
+                Tela_Remocao(lista);
                 break;
             default:
                 return;

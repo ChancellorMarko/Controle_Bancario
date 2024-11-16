@@ -139,4 +139,10 @@ void tela_movimentacao_Financeira();
 // Metodo que pede o código de uma conta e escreve todas as movimentações bancarias feitas por ela
 void Consulta_Contas_Bancarias(Lista *lista);
 
+// Desenha tela de remoção de cadastros de conta
+void Tela_Remocao(Lista *lista);
+
+// Função que realiza a remoção de itens na lista de cadastros de contas
+void Remover(Lista *lista, int opcao_lista);
+
 #endif
