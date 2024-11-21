@@ -9,12 +9,11 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 
 #include "global.h"
 
-
+// Função que realiza a remoção de itens na lista de cadastros de contas
 void Remover(Lista *lista, int opcao_lista)
 {
     //Declaração das Variáveis
     int opcao = 0;
-    int resp = 0;
     int Posicao;
     int x;
     Apontador aux;
@@ -47,14 +46,13 @@ void Remover(Lista *lista, int opcao_lista)
         {
             limpar_campo_opcao();
             gotoxy(7, 23);
-            printf("A lista está vazia! Voltando a tela inicial...");
+            printf("A lista está vazia! Voltando...");
             getch();
             return;
         }
 
         // Remover no final da lista
-        if(resp == 1){
-
+        if(opcao_lista == 1){
             // Verificar se a lista está vazia
             if (lista->primeiro == NULL) {
                 limpar_campo_opcao();
@@ -71,54 +69,52 @@ void Remover(Lista *lista, int opcao_lista)
                 lista->primeiro = NULL;
                 lista->ultimo = NULL;
                 limpar_campo_opcao();
-                gotoxy(7,23);
-                printf("Elemento removido. Agora a lista está vazia.");
+                escrever_msg("Elemento removido. Agora a lista esta vazia.");
                 getch();
                 limpar_campo_opcao();
                 return;
             }
+
             // Percorrer até o penúltimo
-            aux = lista->primeiro;
+            Apontador aux = lista->primeiro;
             while(aux->proximo != lista->ultimo){
                 aux = aux->proximo;
             }
             // Remover o último nó
             free(lista->ultimo);
-            lista->ultimo = aux;
+            lista->ultimo = Aux;
             lista->ultimo->proximo = NULL;
             limpar_campo_opcao();
-            gotoxy(7, 23);
-            printf("Ultimo da lista removido com sucesso!");
+            escrever_msg("Ultimo da lista removido com sucesso!");
+            getch();
+            limpar_campo_opcao();
         }
 
         //Remover no inicio da lista
-        if(resp == 2){
-
+        if(opcao_lista == 2){
             // Verifica se a lista está vazia
             if (lista->primeiro == NULL) {
                 limpar_campo_opcao();
-                gotoxy(7, 23);
-                printf("A Lista ja esta vazia!");
+                escrever_msg("A Lista ja esta vazia!");
                 getch();
                 limpar_campo_opcao();
                 return;
             }
 
-             aux = lista->primeiro;
+            Lista *Aux = lista->primeiro;
 
             // Atualiza o ponteiro 'primeiro' para o próximo nó
             aux->proximo = lista->primeiro;
 
             // Se o nó removido for o único elemento, atualiza o ponteiro 'ultimo'
             if (lista->primeiro == NULL) {
-            lista->ultimo = NULL;
+                lista->ultimo = NULL;
             }
 
             //Remove o nó 
             free(aux);
             limpar_campo_opcao();
-            gotoxy(7, 23);
-            printf("Primeiro da lista removido com sucesso.");
+            escrever_msg("Primeiro da lista removido com sucesso.");
             getch();
             limpar_campo_opcao();
         }
@@ -130,22 +126,20 @@ void Remover(Lista *lista, int opcao_lista)
             gotoxy(7, 23);
             printf("Digite qual a posicao que deseja remover: ");
             gotoxy(49, 23);
-            scanf("%d", &Posicao);
+            scanf("%d", Posicao);
             limpar_campo_opcao();
 
             //Verificar se a lista está vazia
             if (lista->primeiro == NULL) {
                 limpar_campo_opcao();
-                gotoxy(7, 23);
-                printf("A lista já está vazia!");
+                escrever_msg("A lista já está vazia!");
                 getch();
                 limpar_campo_opcao();
                 return;
-
             }
              // Percorre até o nó anterior da posicao desejada
-             P = lista->primeiro;
-            for ( x = 0; x < Posicao - 1 && P != NULL; x++) {
+            Apontador P = lista->primeiro;
+            for (int x = 0; x < posicao - 1 && P != NULL; x++) {
             P = P->proximo;
             }
 
@@ -161,9 +155,8 @@ void Remover(Lista *lista, int opcao_lista)
 
             // Se o nó removido for o último, fazer dele o ultimo da lista
             if (R == lista->ultimo) {
-            lista->ultimo = P;
+                lista->ultimo = P;
             }
-
             free(R);
             limpar_campo_opcao();
             gotoxy(7,23);

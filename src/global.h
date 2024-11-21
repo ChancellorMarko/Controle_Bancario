@@ -63,7 +63,7 @@ typedef struct
 } Conteudo_Financeiro;
 
 // Definir o apontador que aponta para o item financeiro
-typedef struct Item *Apontador;
+typedef struct ItemFinanceiro *ApontadorFinanceiro;
 
 // Definir o tipo de item da lista financeira
 typedef struct ItemFinanceiro
@@ -115,8 +115,8 @@ void Cadastro(Lista *lista, int posicao_na_lista);
 // Escrever mensagem no campo destina a mensagens
 void escrever_msg(char* mensagem[70]);
 
-// Função para limpar a memória depois de finalizar o programa
-void LimparMemoria(Lista *lista);
+// Função para limpar a memória da lista de cadastro de contas
+void Limpar_Mem_Contas(Lista *lista);
 
 // Função que inicializa uma lista
 Lista InicializarLista();
@@ -138,5 +138,29 @@ void tela_movimentacao_Financeira();
 
 // Metodo que pede o código de uma conta e escreve todas as movimentações bancarias feitas por ela
 void Consulta_Contas_Bancarias(Lista *lista);
+
+// Desenha tela de remoção de cadastros de conta
+void Tela_Remocao(Lista *lista);
+
+// Função que realiza a remoção de itens na lista de cadastros de contas
+void Remover(Lista *lista, int opcao_lista);
+
+// Inicaializar a lista de operações financeiras
+ListaFinanceira InicializarListaFinanceira();
+
+// Método para adicionar cada um dos item da lista financeira em uma nova lista
+void Adicionar_Movimentacoes(ListaFinanceira *lista, Conteudo_Financeiro conteudo);
+
+// Função que abre o arquivo e lê todos os dados criando uma lista financeira
+ListaFinanceira LerListaFinanceira();
+
+// Função responsável por salvar todos os dados de operações financeiras em um arquivo
+void SalvarListaFinanceira(ListaFinanceira *lista);
+
+// Função para limpar a memória da lista de movimentacao financeira
+void Limpar_Mem_Finan(ListaFinanceira *lista);
+
+// Define um valor aleatório de crédito para uma conta corrente
+double Serasa(Conteudo_Conta *conta);
 
 #endif

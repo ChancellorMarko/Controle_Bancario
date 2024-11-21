@@ -54,8 +54,8 @@ Apontador Verificar_Existencia(Lista *lista, int codigo_conta)
     return NULL;
 }
 
-// Função para limpar a memória depois de finalizar o programa
-void LimparMemoria(Lista *lista)
+// Função para limpar a memória da lista de cadastro de contas
+void Limpar_Mem_Contas(Lista *lista)
 {
     Apontador lista_auxiliar;
 
@@ -64,11 +64,27 @@ void LimparMemoria(Lista *lista)
         lista_auxiliar = lista->primeiro;
         lista->primeiro = lista->primeiro->proximo;
         free(lista_auxiliar);
-
-        lista->primeiro = NULL;
-        lista->ultimo = NULL;
     }
+    lista->primeiro = NULL;
+    lista->ultimo = NULL;
 }
+
+// Função para limpar a memória da lista de movimentacao financeira
+void Limpar_Mem_Finan(ListaFinanceira *lista)
+{
+    ApontadorFinanceiro lista_auxiliar;
+
+    while(lista->primeiro != NULL)
+    {
+        lista_auxiliar = lista->primeiro;
+        lista->primeiro = lista->primeiro->proximo;
+        free(lista_auxiliar);
+    }
+    lista->primeiro = NULL;
+    lista->ultimo = NULL;
+}
+
+// ------------------- Funções de Arquivo - Conta --------------------
 
 // Função que inicializa uma lista
 Lista InicializarLista()
@@ -99,7 +115,7 @@ void Adicionar_Conta(Lista *lista, Conteudo_Conta conteudo)
     else
     {
         lista->ultimo->proximo = lista_auxiliar; // Adicionar o item no final da lista
-        lista->ultimo = lista_auxiliar; // Mover o apontado par ao ultimo da lista
+        lista->ultimo = lista_auxiliar; // Mover o apontado para o ultimo da lista
     } 
 }
 
@@ -113,7 +129,7 @@ void SalvarLista(Lista *lista)
     FILE *banco_de_dados;
 
     // Abrir o arquivo
-    banco_de_dados = fopen("DADOS.dat", "wb");
+    banco_de_dados = fopen("DADOS_CAS.dat", "wb");
 
     if(banco_de_dados == NULL)
     {
@@ -157,7 +173,7 @@ Lista LerLista()
     lista = InicializarLista();
     
     // Abrir arquivo
-    banco_de_dados = fopen("DADOS.dat", "rb");
+    banco_de_dados = fopen("DADOS_CAS.dat", "rb");
 
     if(banco_de_dados == NULL)
     {
@@ -182,3 +198,149 @@ Lista LerLista()
 
     return lista;
 }
+// -------------------------------------------------------------------
+
+// Define um valor aleatório de crédito para uma conta corrente
+double Serasa(Conteudo_Conta *conta)
+{
+    int Credito_Social;
+    int Sorte;
+
+    srand(time(NULL));
+
+    Credito_Social = rand() % 100 + 1;
+    Sorte = rand() % 100 + 1;
+
+    if (Credito_Social == Sorte) 
+    {
+        conta->vl_limite = rand() % 15000 + 1000;        
+    }
+    else if (Credito_Social = Sorte) 
+    {
+        conta->vl_limite = 0;
+    }
+    else 
+    {
+        conta->vl_limite = rand() % 1200 + 100;
+    }
+
+    return conta->vl_limite;
+}
+
+// ---------------- Funções de Arquivo - Financeiro ------------------
+
+// Inicaializar a lista de operações financeiras
+ListaFinanceira InicializarListaFinanceira()
+{
+    //Inicializar o começo e fim da lista
+    ListaFinanceira lista;
+    lista.primeiro = NULL; //Inicializar a variável com um valor null para não dar ruim ao atribuir algo a ela
+    lista.ultimo = NULL; //Inicializar a variável com um valor null para não dar ruim ao atribuir algo a ela
+
+    return lista;
+}
+
+// Método para adicionar cada um dos item da lista financeira em uma nova lista
+void Adicionar_Movimentacoes(ListaFinanceira *lista, Conteudo_Financeiro conteudo)
+{
+    ApontadorFinanceiro auxiliar;
+
+    auxiliar = (ApontadorFinanceiro)malloc(sizeof(ItemFinanceiro));
+
+    auxiliar->conteudo = conteudo; // Adicionar conteúdo a lista
+    auxiliar->proximo = NULL; // Aterrar o campo que aponta para o proximo
+    auxiliar->anterior = NULL; // Aterrar o campo que aponta para o anterior
+
+    if(lista->primeiro == NULL)
+    {
+        lista->primeiro = auxiliar;
+        lista->ultimo = auxiliar;
+    }
+    else
+    {
+        lista->ultimo->proximo = auxiliar; // Aponta o ponteiro proximo para o novo item
+        auxiliar->anterior = lista->ultimo; // Aponta o ponteiro anterior para o item anterior (que era o ultimo)
+        lista->ultimo = auxiliar; // Mover o apontador para o ultimo da lista (recém adicionado)
+    } 
+}
+
+// Função que abre o arquivo e lê todos os dados criando uma lista financeira
+ListaFinanceira LerListaFinanceira()
+{
+    // Variáveis
+    Conteudo_Financeiro conteudo_auxiliar;
+    ListaFinanceira lista;
+
+    FILE *banco_de_dados; // Criar um novo arquivo
+
+    // Criar uma nova lista
+    lista = InicializarListaFinanceira();
+    
+    // Abrir arquivo
+    banco_de_dados = fopen("DADOS_FIN.dat", "rb");
+
+    if(banco_de_dados == NULL)
+    {
+        tela();
+        limpar_campo_opcao();
+        escrever_msg("Erro ao abrir e ler movimentacoes financeiras!");
+        getch();
+        return lista;
+    }
+    else 
+    {
+        // Ler cada conteudo de cadastro um por um
+        while (fread(&conteudo_auxiliar, sizeof(Conteudo_Financeiro), 1, banco_de_dados)) 
+        {
+            // Adicionar conteudos lido em posições da lista (sempre no final mantendo a ordem anterior)
+            Adicionar_Movimentacoes(&lista, conteudo_auxiliar);    
+        }
+    }
+
+    // Fechar o arquivo
+    fclose(banco_de_dados);
+
+    return lista;
+}
+
+// Função responsável por salvar todos os dados de operações financeiras em um arquivo
+void SalvarListaFinanceira(ListaFinanceira *lista)
+{
+    // Variaveis
+    ApontadorFinanceiro auxiliar;
+
+    // Criar arquivo
+    FILE *banco_de_dados;
+
+    // Abrir o arquivo
+    banco_de_dados = fopen("DADOS_FIN.dat", "wb");
+
+    if(banco_de_dados == NULL)
+    {
+        tela();
+        limpar_campo_opcao();
+        escrever_msg("Erro ao salvar movimentacoes financeiras!");
+        getch();
+        return;
+    }
+    else 
+    {
+        auxiliar = lista->primeiro;
+
+        while(auxiliar != NULL)
+        {
+            // Escrever o conteúdo de cada cadastro um por um no arquivo
+            fwrite(&auxiliar->conteudo, sizeof(Conteudo_Conta), 1, banco_de_dados);
+            auxiliar = auxiliar->proximo; // ir para o proximo cadastro
+        }
+
+        tela();
+        limpar_campo_opcao();
+        escrever_msg("Salvamento no banco de dados concluido com sucesso!");
+        getch();
+
+        // Fechar arquivo
+        fclose(banco_de_dados);
+    }
+}
+// ------------------------------------------------------------------
