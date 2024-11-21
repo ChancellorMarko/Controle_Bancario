@@ -11,7 +11,7 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 #include "global.h"
 
 // Metodo que pede o código de uma conta e escreve todas as movimentações bancarias feitas por ela
-void Consulta_Contas_Bancarias(Lista *lista)
+void Consulta_Contas_Bancarias(Lista *conta)
 {
     // Variáveis
     int x;
@@ -23,7 +23,7 @@ void Consulta_Contas_Bancarias(Lista *lista)
     printf("[Consulta Bancaria]");
 
     // Desenhar tela
-    tela_movimentacao_Financeira();
+    tela_consulta_Financeira();
 
     do
     {
@@ -38,7 +38,35 @@ void Consulta_Contas_Bancarias(Lista *lista)
             printf("                  ");
         }
     }while(codigo_pesq < 0);
-    Aux = Verificar_Existencia(lista, codigo_pesq);
+    Aux = Verificar_Existencia(conta, codigo_pesq);
 
     // Para continuar
+}
+
+void Cadastro_Financeiro(ListaFinanceira *financeiro, Lista *conta)
+{
+    // Varáveis
+    int cod_conta;
+    Conteudo_Conta aux;
+
+    //tela_movimentacao_financeira(, conta);
+
+    // Verificação do código da conta
+    do 
+    {
+        gotoxy(33, 7);
+        scanf("%d", &cod_conta);
+        //aux = Verificar_Existencia(conta, cod_conta);
+        if(cod_conta > 0)
+        {
+            limpar_campo_opcao();
+            escrever_msg("Valor invalido! Digite novemnete...");
+            getch();
+            limpar_campo_opcao();
+            gotoxy(33, 7);
+            printf("              ");
+        }
+    }while (cod_conta > 0);
+
+
 }

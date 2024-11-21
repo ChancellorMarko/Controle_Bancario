@@ -129,7 +129,7 @@ void SalvarLista(Lista *lista)
     FILE *banco_de_dados;
 
     // Abrir o arquivo
-    banco_de_dados = fopen("DADOS_CAS.dat", "wb");
+    banco_de_dados = fopen("DADOS_CON.dat", "wb");
 
     if(banco_de_dados == NULL)
     {
@@ -173,7 +173,7 @@ Lista LerLista()
     lista = InicializarLista();
     
     // Abrir arquivo
-    banco_de_dados = fopen("DADOS_CAS.dat", "rb");
+    banco_de_dados = fopen("DADOS_CON.dat", "rb");
 
     if(banco_de_dados == NULL)
     {
@@ -344,3 +344,7 @@ void SalvarListaFinanceira(ListaFinanceira *lista)
     }
 }
 // ------------------------------------------------------------------
+
+
+
+//strcpy(dia,"data",posição);

@@ -124,8 +124,8 @@ void escrever_msg(char* mensagem[70])
     printf("%s", mensagem);
 }
 
-// Desenha a tela de movimentação financeira
-void tela_movimentacao_Financeira()
+// Desenha a tela de consulta de movimentação financeira
+void tela_consulta_Financeira()
 {
     // Variaveis
     int x;
@@ -176,4 +176,48 @@ void tela_movimentacao_Financeira()
     printf("Saldo:      ");
     gotoxy(67, 8);
     printf("------------");
+}
+
+// Desenha a tela de movimentação de credito e debito
+void tela_movimentacao_financeira(ListaFinanceira *finaceiro, Conteudo_Conta *conta)
+{
+    // Variáveis
+    int x;
+    Conteudo_Financeiro aux;
+
+    //aux = 
+
+    gotoxy(6, 6);
+    printf("Sequencia de Movimentacao: %d", aux.sequencial);
+    gotoxy(6, 7);
+    printf("Banco....................: ");
+    gotoxy(6, 8);
+    printf("Agencia..................: %s", conta->agencia);
+    gotoxy(6, 9);
+    printf("Numero da conta..........: %s", conta->agencia);
+    gotoxy(6, 10);
+    printf("Tipo de conta............: %s", conta->tipo_conta);
+    gotoxy(6, 11);
+    printf("Saldo....................: %.2lf", conta->vl_saldo);
+    gotoxy(6, 12);
+    printf("Limite...................: %.2lf", conta->vl_limite);
+    gotoxy(6, 13);
+    printf("Total (Saldo + Limite)...: %.2lf", conta->vl_saldo + conta->vl_limite);
+
+    gotoxy(2, 14);
+    for(x = 1; x > 79; x++)
+    {
+        printf("-");
+    }
+
+    gotoxy(6, 15);
+    printf("Data da movimentacao.....: ");
+    gotoxy(6, 15);
+    printf("Tipo de movimnetacao.....: ");
+    gotoxy(6, 15);
+    printf("Destinatario.............: ");
+    gotoxy(6, 15);
+    printf("Valor da movimentacao....: R$");
+    gotoxy(6, 15);
+    printf("Novo saldo...............: R$");
 }

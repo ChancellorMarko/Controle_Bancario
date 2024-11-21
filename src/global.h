@@ -133,9 +133,6 @@ Lista LerLista();
 // Desenha a tela de movimentação financeira
 void Tela_Financeiro(Lista *lista);
 
-// Desenha a tela de movimentação financeira
-void tela_movimentacao_Financeira();
-
 // Metodo que pede o código de uma conta e escreve todas as movimentações bancarias feitas por ela
 void Consulta_Contas_Bancarias(Lista *lista);
 
@@ -162,5 +159,11 @@ void Limpar_Mem_Finan(ListaFinanceira *lista);
 
 // Define um valor aleatório de crédito para uma conta corrente
 double Serasa(Conteudo_Conta *conta);
+
+// Desenha a tela de consulta de movimentação financeira
+void tela_consulta_Financeira();
+
+// Desenha a tela de movimentação de credito e debito
+void tela_movimentacao_financeira(ListaFinanceira *finaceiro, Conteudo_Conta *conta);
 
 #endif
