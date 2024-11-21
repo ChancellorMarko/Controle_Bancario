@@ -43,7 +43,7 @@ void Tela_Remocao(Lista *lista)
             }
         }while(opcao < 0 || opcao > 3);
 
-        switch (opcao);
+        switch (opcao)
         {
             case 1:
                 Cadastro(lista, opcao);

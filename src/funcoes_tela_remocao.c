@@ -17,10 +17,9 @@ void Remover(Lista *lista, int opcao_lista)
     int resp = 0;
     int Posicao;
     int x;
-    Apontador Aux;
+    Apontador aux;
     Apontador P;
     Apontador R;
-
 
     do
     {
@@ -79,7 +78,7 @@ void Remover(Lista *lista, int opcao_lista)
                 return;
             }
             // Percorrer até o penúltimo
-            Apontador aux = lista->primeiro;
+            aux = lista->primeiro;
             while(aux->proximo != lista->ultimo){
                 aux = aux->proximo;
             }
@@ -105,10 +104,10 @@ void Remover(Lista *lista, int opcao_lista)
                 return;
             }
 
-            Lista *Aux = lista->primeiro;
+             aux = lista->primeiro;
 
             // Atualiza o ponteiro 'primeiro' para o próximo nó
-            lista->primeiro = Aux->proximo;
+            aux->proximo = lista->primeiro;
 
             // Se o nó removido for o único elemento, atualiza o ponteiro 'ultimo'
             if (lista->primeiro == NULL) {
@@ -116,7 +115,7 @@ void Remover(Lista *lista, int opcao_lista)
             }
 
             //Remove o nó 
-            free(Aux);
+            free(aux);
             limpar_campo_opcao();
             gotoxy(7, 23);
             printf("Primeiro da lista removido com sucesso.");
@@ -131,7 +130,7 @@ void Remover(Lista *lista, int opcao_lista)
             gotoxy(7, 23);
             printf("Digite qual a posicao que deseja remover: ");
             gotoxy(49, 23);
-            scanf("%d", Posicao);
+            scanf("%d", &Posicao);
             limpar_campo_opcao();
 
             //Verificar se a lista está vazia
@@ -145,8 +144,8 @@ void Remover(Lista *lista, int opcao_lista)
 
             }
              // Percorre até o nó anterior da posicao desejada
-            Apontador P = lista->primeiro;
-            for (int x = 0; x < posicao - 1 && P != NULL; x++) {
+             P = lista->primeiro;
+            for ( x = 0; x < Posicao - 1 && P != NULL; x++) {
             P = P->proximo;
             }
 
@@ -157,7 +156,7 @@ void Remover(Lista *lista, int opcao_lista)
             }
 
             // Remove o nó da posição desejada
-            Apontador R = P->proximo;
+            R = P->proximo;
             P->proximo = R->proximo;
 
             // Se o nó removido for o último, fazer dele o ultimo da lista
@@ -168,7 +167,7 @@ void Remover(Lista *lista, int opcao_lista)
             free(R);
             limpar_campo_opcao();
             gotoxy(7,23);
-            printf("Elemento na posicao %d removido com sucesso.", posicao);
+            printf("Elemento na posicao %d removido com sucesso.", Posicao);
             getch();
             limpar_campo_opcao();
         }
