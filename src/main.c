@@ -60,7 +60,7 @@ int main()
                 Tela_Cadastro(&lista_co);
                 break;
             case 2:
-                Tela_Financeiro(&Lista_fi);
+                Tela_Financeiro(&Lista_fi, &lista_co);
                 break;
             case 3:
                 limpar_campo_opcao();

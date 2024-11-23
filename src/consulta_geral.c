@@ -9,9 +9,10 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 
 #include "global.h"
 
+// Tela de consulta de contas
 void Consulta_geral(Lista *lista)
 {
-
+    Apontador aux;
     int opcao;
 
     do
@@ -20,7 +21,7 @@ void Consulta_geral(Lista *lista)
         gotoxy(30, 3);
         printf("[Consulta geral de todas as contas]");
 
-        Apontador aux = lista->primeiro;
+        aux = lista->primeiro;
 
         if (aux == NULL)
         {

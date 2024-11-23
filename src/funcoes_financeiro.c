@@ -9,9 +9,9 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 
 // Bibliotecas
 #include "global.h"
-
-// Metodo que pede o código de uma conta e escreve todas as movimentações bancarias feitas por ela
-void Consulta_Contas_Bancarias(Lista *conta)
+/*
+// Método que pede o código de uma conta e escreve todas as movimentações bancarias feitas por ela
+void Consulta_Contas_Bancarias(Lista *lista_co)
 {
     // Variáveis
     int x;
@@ -38,11 +38,12 @@ void Consulta_Contas_Bancarias(Lista *conta)
             printf("                  ");
         }
     }while(codigo_pesq < 0);
-    Aux = Verificar_Existencia(conta, codigo_pesq);
+    Aux = Verificar_Existencia(lista_co, codigo_pesq);
 
     // Para continuar
 }
 
+// Cadastro de movimentações financeiras
 void Cadastro_Financeiro(ListaFinanceira *financeiro, Lista *conta)
 {
     // Varáveis
@@ -70,3 +71,4 @@ void Cadastro_Financeiro(ListaFinanceira *financeiro, Lista *conta)
 
 
 }
+*/

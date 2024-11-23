@@ -69,7 +69,7 @@ void Limpar_Mem_Contas(Lista *lista)
     lista->ultimo = NULL;
 }
 
-// Função para limpar a memória da lista de movimentacao financeira
+// Função para limpar a memória da lista de movimentação financeira
 void Limpar_Mem_Finan(ListaFinanceira *lista)
 {
     ApontadorFinanceiro lista_auxiliar;
@@ -344,7 +344,5 @@ void SalvarListaFinanceira(ListaFinanceira *lista)
     }
 }
 // ------------------------------------------------------------------
-
-
 
 //strcpy(dia,"data",posição);

@@ -69,15 +69,15 @@ typedef struct ItemFinanceiro *ApontadorFinanceiro;
 typedef struct ItemFinanceiro
 {
     Conteudo_Financeiro conteudo;
-    Apontador proximo;
-    Apontador anterior;
+    ApontadorFinanceiro proximo;
+    ApontadorFinanceiro anterior;
 } ItemFinanceiro;
 
 // Definir lista: inicio e fim
 typedef struct
 {
-    Apontador primeiro;
-    Apontador ultimo;
+    ApontadorFinanceiro primeiro;
+    ApontadorFinanceiro ultimo;
 } ListaFinanceira;
 
 // ------------------------------------------------------------ 
@@ -131,10 +131,10 @@ void SalvarLista(Lista *lista);
 Lista LerLista();
 
 // Desenha a tela de movimentação financeira
-void Tela_Financeiro(Lista *lista);
+void Tela_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co);
 
-// Metodo que pede o código de uma conta e escreve todas as movimentações bancarias feitas por ela
-void Consulta_Contas_Bancarias(Lista *lista);
+// Método que pede o código de uma conta e escreve todas as movimentações bancarias feitas por ela
+void Consulta_Contas_Bancarias(Lista *lista_co);
 
 // Desenha tela de remoção de cadastros de conta
 void Tela_Remocao(Lista *lista);
@@ -165,5 +165,14 @@ void tela_consulta_Financeira();
 
 // Desenha a tela de movimentação de credito e debito
 void tela_movimentacao_financeira(ListaFinanceira *finaceiro, Conteudo_Conta *conta);
+
+// Função de consulta o código da conta para a função de remoção
+void Consulta_codigo(Lista *lista, int codigo_conta);
+
+// Tela de consulta de contas
+void Consulta_geral(Lista *lista);
+
+// Cadastro de movimentações financeiras
+void Cadastro_Financeiro(ListaFinanceira *financeiro, Lista *conta);
 
 #endif

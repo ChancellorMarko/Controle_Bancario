@@ -11,7 +11,7 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 #include "global.h"
 
 // Desenha a tela de movimentação financeira
-void Tela_Financeiro(Lista *lista)
+void Tela_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
 {
     // Variáveis
     int opcao = 0;
@@ -50,7 +50,7 @@ void Tela_Financeiro(Lista *lista)
                 // Tela de movimentação financeira
                 break;
             case 2:
-                Consulta_Contas_Bancarias(lista);
+                //Consulta_Contas_Bancarias(lista_co);
                 break;
             default:
                 return;
