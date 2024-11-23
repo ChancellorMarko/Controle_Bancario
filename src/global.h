@@ -18,7 +18,6 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 #include <locale.h>
 
 // --------------- Estrutura de dados - Conta ----------------
-
 // Definir conteudo da conta
 typedef struct 
 {
@@ -48,9 +47,9 @@ typedef struct
     Apontador primeiro;
     Apontador ultimo;
 } Lista;
+// ----------------------------------------------------------------
 
 // --------------- Estrutura de dados - Financeiro ----------------
-
 // Definir conteudo financeiro
 typedef struct 
 {
@@ -79,7 +78,6 @@ typedef struct
     ApontadorFinanceiro primeiro;
     ApontadorFinanceiro ultimo;
 } ListaFinanceira;
-
 // ------------------------------------------------------------ 
 
 // Função para posicionar o cursor em um determinado ponto da tela
@@ -133,8 +131,8 @@ Lista LerLista();
 // Desenha a tela de movimentação financeira
 void Tela_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co);
 
-// Método que pede o código de uma conta e escreve todas as movimentações bancarias feitas por ela
-void Consulta_Contas_Bancarias(Lista *lista_co);
+// Método que pede o código de uma conta e escreve todas as informações das contas bancarias
+void Consulta_Contas_Bancarias(Lista *lista);
 
 // Desenha tela de remoção de cadastros de conta
 void Tela_Remocao(Lista *lista);
@@ -163,16 +161,19 @@ double Serasa(Conteudo_Conta *conta);
 // Desenha a tela de consulta de movimentação financeira
 void tela_consulta_Financeira();
 
-// Desenha a tela de movimentação de credito e debito
-void tela_movimentacao_financeira(ListaFinanceira *finaceiro, Conteudo_Conta *conta);
-
 // Função de consulta o código da conta para a função de remoção
 void Consulta_codigo(Lista *lista, int codigo_conta);
 
 // Tela de consulta de contas
 void Consulta_geral(Lista *lista);
 
+// Desenha a tela de cadastro de movimentações financeiras
+void tela_cadastro_financeiro(ListaFinanceira *lista_fi, Item *conta);
+
+// Contar sequencia de movimentações financeiras
+int Contar_movimentacao_financerira(ListaFinanceira *lista);
+
 // Cadastro de movimentações financeiras
-void Cadastro_Financeiro(ListaFinanceira *financeiro, Lista *conta);
+void Cadastro_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co);
 
 #endif

@@ -48,17 +48,29 @@ void Consulta_geral(Lista *lista)
                 gotoxy(6, 18);
                 printf("Status da conta: %s", aux->conteudo.status);
 
-                // Espera por uma tecla do usuário para continuar
-                getch();
+                // Pergunta ao usuário se deseja continuar
+                escrever_msg("Pressione qualquer outra tecla para continuar...");
+                getch(); 
 
                 aux = aux->proximo;
             }
         }
 
-        // Pergunta ao usuário se deseja continuar
-        gotoxy(7, 23);
-        printf("Pressione qualquer outra tecla para continuar...");
-        opcao = getch(); 
-
-    } while (opcao != 0); 
+        // Verificar se o usuário quer ver novamente
+        do
+        {
+            limpar_campo_opcao();
+            gotoxy(7, 23);
+            printf("Quer realizar a consulta novamente? (1- S / 0 - N): ");
+            scanf("%d",&opcao);
+            if(opcao < 0 || opcao > 1)
+            {
+                limpar_campo_opcao();
+                escrever_msg("Valor invalido! Digite novamente...");
+                getch();
+                limpar_campo_opcao();
+            }
+        }while(opcao < 0 || opcao > 1); 
+    } while (opcao != 0);
+    return;
 }

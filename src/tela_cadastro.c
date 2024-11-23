@@ -55,7 +55,7 @@ void Tela_Cadastro(Lista *lista)
                 Tela_Alteracao(lista);
                 break;
             case 3:
-                //TelaConsulta
+                Consulta_Contas_Bancarias(lista);
                 break;
             case 4:
                 Tela_Remocao(lista);
@@ -65,5 +65,5 @@ void Tela_Cadastro(Lista *lista)
                 break;
         }
 
-    }while(opcao =! 0);
+    }while(opcao != 0);
 }

@@ -178,31 +178,31 @@ void tela_consulta_Financeira()
     printf("------------");
 }
 
-// Desenha a tela de movimentação de credito e debito
-void tela_movimentacao_financeira(ListaFinanceira *finaceiro, Conteudo_Conta *conta)
+// Desenha a tela de cadastro de movimentações financeiras
+void tela_cadastro_financeiro(ListaFinanceira *lista_fi, Item *conta)
 {
     // Variáveis
     int x;
-    Conteudo_Financeiro aux;
+    int quant_mov = 0;
 
-    //aux = 
+    quant_mov = Contar_movimentacao_financerira(lista_fi);
 
     gotoxy(6, 6);
-    printf("Sequencia de Movimentacao: %d", aux.sequencial);
+    printf("Sequencia de Movimentacao: %dº", quant_mov);
     gotoxy(6, 7);
     printf("Banco....................: ");
     gotoxy(6, 8);
-    printf("Agencia..................: %s", conta->agencia);
+    printf("Agencia..................: %s", conta->conteudo.agencia);
     gotoxy(6, 9);
-    printf("Numero da conta..........: %s", conta->agencia);
+    printf("Numero da conta..........: %s", conta->conteudo.numero_conta);
     gotoxy(6, 10);
-    printf("Tipo de conta............: %s", conta->tipo_conta);
+    printf("Tipo de conta............: %s", conta->conteudo.tipo_conta);
     gotoxy(6, 11);
-    printf("Saldo....................: %.2lf", conta->vl_saldo);
+    printf("Saldo....................: %.2lf", conta->conteudo.vl_saldo);
     gotoxy(6, 12);
-    printf("Limite...................: %.2lf", conta->vl_limite);
+    printf("Limite...................: %.2lf", conta->conteudo.vl_limite);
     gotoxy(6, 13);
-    printf("Total (Saldo + Limite)...: %.2lf", conta->vl_saldo + conta->vl_limite);
+    printf("Total (Saldo + Limite)...: %.2lf", conta->conteudo.vl_saldo + conta->conteudo.vl_limite);
 
     gotoxy(2, 14);
     for(x = 1; x > 79; x++)

@@ -35,19 +35,19 @@ void Tela_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
             gotoxy(7, 23);
             printf("Escolha sua opcao: ");
             scanf("%d", &opcao);
-            if(opcao < 0 || opcao > 5)
+            if(opcao < 0 || opcao > 2)
             {
                 limpar_campo_opcao();
                 gotoxy(7, 23);
                 printf("Opcao invalida!");
                 limpar_campo_opcao();
             }
-        }while(opcao < 0 || opcao > 3);
+        }while(opcao < 0 || opcao > 2);
 
         switch (opcao) 
         {
             case 1:
-                // Tela de movimentação financeira
+                Cadastro_Financeiro(lista_fi, lista_co);
                 break;
             case 2:
                 //Consulta_Contas_Bancarias(lista_co);
@@ -57,5 +57,5 @@ void Tela_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
                 break;
         }
 
-    }while(opcao =! 0);
+    }while(opcao != 0);
 }

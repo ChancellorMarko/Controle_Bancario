@@ -85,7 +85,6 @@ void Limpar_Mem_Finan(ListaFinanceira *lista)
 }
 
 // ------------------- Funções de Arquivo - Conta --------------------
-
 // Função que inicializa uma lista
 Lista InicializarLista()
 {
@@ -205,19 +204,24 @@ double Serasa(Conteudo_Conta *conta)
 {
     int Credito_Social;
     int Sorte;
+    int Chance;
 
     srand(time(NULL));
 
     Credito_Social = rand() % 100 + 1;
     Sorte = rand() % 100 + 1;
+    Chance = rand() % 100 + 1;
 
     if (Credito_Social == Sorte) 
     {
-        conta->vl_limite = rand() % 15000 + 1000;        
-    }
-    else if (Credito_Social = Sorte) 
-    {
-        conta->vl_limite = 0;
+        if(Chance == Sorte)
+        {
+            conta->vl_limite = rand() % 15000 + 1000;        
+        }
+        else
+        {
+            conta->vl_limite = 0;
+        }
     }
     else 
     {
@@ -228,7 +232,6 @@ double Serasa(Conteudo_Conta *conta)
 }
 
 // ---------------- Funções de Arquivo - Financeiro ------------------
-
 // Inicaializar a lista de operações financeiras
 ListaFinanceira InicializarListaFinanceira()
 {
@@ -344,5 +347,22 @@ void SalvarListaFinanceira(ListaFinanceira *lista)
     }
 }
 // ------------------------------------------------------------------
+
+// Contar sequencia de movimentações financeiras
+int Contar_movimentacao_financerira(ListaFinanceira *lista)
+{
+    ApontadorFinanceiro VariavelAuxiliar;
+    int Quant_Intens = 0;
+
+    VariavelAuxiliar = lista->primeiro;
+
+    while (VariavelAuxiliar != NULL) 
+    {
+        VariavelAuxiliar = VariavelAuxiliar->proximo;
+        Quant_Intens++;
+    }
+
+    return Quant_Intens;
+}
 
 //strcpy(dia,"data",posição);

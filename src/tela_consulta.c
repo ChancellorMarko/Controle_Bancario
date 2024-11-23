@@ -9,6 +9,7 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 
 #include "global.h"
 
+// Método que pede o código de uma conta e escreve todas as informações das contas bancarias
 void Consulta_Contas_Bancarias(Lista *lista)
 {
 
@@ -67,5 +68,5 @@ void Consulta_Contas_Bancarias(Lista *lista)
         }
     }while(opcao != 0);
 
-    // return lista;
+    return;
 }
