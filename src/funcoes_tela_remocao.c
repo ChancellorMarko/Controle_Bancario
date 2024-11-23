@@ -46,7 +46,7 @@ void Remover(Lista *lista, int opcao_lista)
         {
             limpar_campo_opcao();
             gotoxy(7, 23);
-            printf("A lista está vazia! Voltando...");
+            printf("A lista esta vazia! Voltando...");
             getch();
             return;
         }
@@ -128,7 +128,7 @@ void Remover(Lista *lista, int opcao_lista)
             //Verificar se a lista está vazia
             if (lista->primeiro == NULL) {
                 limpar_campo_opcao();
-                escrever_msg("A lista já está vazia!");
+                escrever_msg("A lista ja esta vazia!");
                 getch();
                 limpar_campo_opcao();
                 return;
@@ -141,7 +141,7 @@ void Remover(Lista *lista, int opcao_lista)
 
             // Verificar se a posição é válida
             if (P == NULL || P->proximo == NULL) {
-                printf("Posição inválida!");
+                printf("Posição invalida!");
                 return;
             }
 
