@@ -116,7 +116,7 @@ Apontador Verificar_Existencia(Lista *lista, int codigo_conta);
 void Cadastro(Lista *lista, int posicao_na_lista);
 
 // Escrever mensagem no campo destina a mensagens
-void escrever_msg(char* mensagem[70]);
+void escrever_msg(const char* mensagem[70]);
 
 // Função para limpar a memória da lista de cadastro de contas
 void Limpar_Mem_Contas(Lista *lista);
@@ -143,7 +143,7 @@ void Consulta_Contas_Bancarias(Lista *lista);
 void Tela_Remocao(Lista *lista);
 
 // Função que realiza a remoção de itens na lista de cadastros de contas
-void Remover(Lista *lista, int opcao_lista);
+void Remover(Lista *lista, ListaFinanceira *lista_fi, int opcao_lista);
 
 // Inicaializar a lista de operações financeiras
 ListaFinanceira InicializarListaFinanceira();
@@ -186,5 +186,11 @@ void Realizar_Movimentacao(Conteudo_Financeiro *mov_fin, Item *conta, int tipo_o
 
 // Incrementa o sequencial de movimentações financeiras
 void Incrementar_Sequencial(ListaFinanceira *lista_fi, Conteudo_Financeiro *temporario);
+
+// Função que recebe e compara uma data no formato xx/yy/zzzz e diz se ela é maior ou menor do que a digitada
+int Comparar_Data(char* data[11], ItemFinanceiro *conteudo_fi);
+
+// Verifica se existe alguma movimentação com o mesmo código da conta
+ApontadorFinanceiro Verificar_Existencia_Movimentacao(ListaFinanceira *lista, int codigo_conta);
 
 #endif

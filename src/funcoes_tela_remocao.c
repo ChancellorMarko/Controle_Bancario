@@ -10,7 +10,7 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 #include "global.h"
 
 // Função que realiza a remoção de itens na lista de cadastros de contas
-void Remover(Lista *lista, int opcao_lista)
+void Remover(Lista *lista, ListaFinanceira *lista_fi, int opcao_lista)
 {
     //Declaração das Variáveis
     int opcao = 0;
