@@ -14,11 +14,11 @@ void Consulta_ordemCodigo(Lista *lista)
 
     int trocou;
     int linha;
+    int x;
     Apontador atual;
     Apontador anterior = NULL;
 
     tela();
-    //TelaOrdemNumerica();
 
     if (lista->primeiro == NULL || lista->primeiro->proximo == NULL)
     {
@@ -27,6 +27,19 @@ void Consulta_ordemCodigo(Lista *lista)
         printf("A lista está vazia.");
         return;
     }
+
+    // Desenhar cabeçalho
+    for(x = 1; x < 79; x++)
+    {
+        gotoxy(x, 6);
+        printf("-");
+    }
+    gotoxy(1, 6);
+    printf("+");
+    gotoxy(79, 6);
+    printf("+");
+    gotoxy(2, 5);
+    printf("N |Banco               |N.Ag  |N.Con  |Tipo.C  |Saldo      |Limite   |Status");
 
     // Criar uma cópia da lista original
     Lista lista_temporaria;
@@ -86,37 +99,23 @@ void Consulta_ordemCodigo(Lista *lista)
         gotoxy(5, linha);
         printf("%s", atual->conteudo.banco);
 
-        gotoxy(24, linha);
-        printf("%d", atual->conteudo.agencia);
+        gotoxy(26, linha);
+        printf("%s", atual->conteudo.agencia);
 
-        gotoxy(30, linha);
-        printf("%d", atual->conteudo.numero_conta);
+        gotoxy(33, linha);
+        printf("%s", atual->conteudo.numero_conta);
 
-        gotoxy(39, linha);
-        if (atual->conteudo.tipo_conta == 'Corrente')
-        {
-            printf("Corrente");
-        }
-        else if (atual->conteudo.tipo_conta == 'Poupanca')
-        {
-            printf("Poupanca");
-        }
-        else if (atual->conteudo.tipo_conta == 'Cartao de credito'){
-            printf("Cartao de Credito");
-        }
+        gotoxy(40, linha);
+        printf("%s", atual->conteudo.tipo_conta);
 
-        gotoxy(54, linha);
-        printf("R$");
-        gotoxy(56, linha);
-        printf("%.2lf", atual->conteudo.vl_saldo);
+        gotoxy(49, linha);
+        printf("R$%.2lf", atual->conteudo.vl_saldo);
 
-        gotoxy(66, linha);
-        printf("R$");
-        gotoxy(68, linha);
-        printf("%.2lf", atual->conteudo.vl_limite);
+        gotoxy(62, linha);
+        printf("R$%.2lf", atual->conteudo.vl_limite);
 
-        gotoxy(78, linha);
-        printf("%d", atual->conteudo.status);
+        gotoxy(72, linha);
+        printf("%s", atual->conteudo.status);
 
         linha++; // Avança para a próxima linha
 
@@ -125,7 +124,18 @@ void Consulta_ordemCodigo(Lista *lista)
             gotoxy(07, 23);
             printf("Pressione qualquer tecla para continuar...");
             getch();
-            TelaConsultaEmLinha(); // Redesenha tela
+            // Desenhar cabeçalho
+            for(x = 1; x < 79; x++)
+            {
+                gotoxy(x, 6);
+                printf("-");
+            }
+            gotoxy(1, 6);
+            printf("+");
+            gotoxy(79, 6);
+            printf("+");
+            gotoxy(2, 5);
+            printf("N |Banco               |N.Ag  |N.Con  |Tipo.C  |Saldo      |Limite   |Status");
             linha = 7;             // Reinicia a contagem de linhas
         }
 

@@ -20,6 +20,8 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 // Difinições
 #define DEBITO "Debito"
 #define CREDITO "Credito"
+#define ATIVADO "Ativo"
+#define DESATIVADO "Inativo"
 
 // --------------- Estrutura de dados - Conta ----------------
 // Definir conteudo da conta
@@ -97,8 +99,8 @@ void tela_conta(Item *ItemLista);
 // Limpar o campo de opções
 void limpar_campo_opcao();
 
-// Desenhar a tela de cadastro de contas
-void Tela_Cadastro(Lista *lista);
+// Desenha a tela que servirá para direcionar o usuário as funções de cadastro de conta
+void Tela_Cadastro(Lista *lista, ListaFinanceira *lista_fi);
 
 // Desenhar a tela de inclusão de cadastros na lista
 void Tela_Inclusao(Lista *lista);
@@ -112,18 +114,18 @@ int Contar_Elementos_Lista(Lista *lista);
 // Função que verifica se o código de funcionario já foi utilizado
 Apontador Verificar_Existencia(Lista *lista, int codigo_conta);
 
-
 //Função para consultar todas as contas bancárias
 void Consulta_geral(Lista *lista);
 
 //Função para consultar a conta bancária pelo código que o usuário escolher
-void Consulta_codigo(Lista *lista, int codigo_conta);
+void Consulta_codigo(Lista *lista);
 
 // Função para consultar as contas bancárias por ordem numérica
 void Consulta_ordemCodigo(Lista *lista);
 
 //Função para consultar as contas bancárias por ordem alfabética
 void Consulta_alfabetica(Lista *lista);
+
 // Função de castro de contas
 void Cadastro(Lista *lista, int posicao_na_lista);
 
@@ -152,7 +154,7 @@ void Tela_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co);
 void Consulta_Contas_Bancarias(Lista *lista);
 
 // Desenha tela de remoção de cadastros de conta
-void Tela_Remocao(Lista *lista);
+void Tela_Remocao(Lista *lista_co, ListaFinanceira *lista_fi);
 
 // Função que realiza a remoção de itens na lista de cadastros de contas
 void Remover(Lista *lista, ListaFinanceira *lista_fi, int opcao_lista);
@@ -178,9 +180,6 @@ double Serasa(Conteudo_Conta *conta);
 // Desenha a tela de consulta de movimentação financeira
 void tela_consulta_Financeira();
 
-// Função de consulta o código da conta para a função de remoção
-void Consulta_codigo(Lista *lista, int codigo_conta);
-
 // Tela de consulta de contas
 void Consulta_geral(Lista *lista);
 
@@ -200,9 +199,9 @@ void Realizar_Movimentacao(Conteudo_Financeiro *mov_fin, Item *conta, int tipo_o
 void Incrementar_Sequencial(ListaFinanceira *lista_fi, Conteudo_Financeiro *temporario);
 
 // Função que recebe e compara uma data no formato xx/yy/zzzz e diz se ela é maior ou menor do que a digitada
-int Comparar_Data(char* data[11], ItemFinanceiro *conteudo_fi);
+int Comparar_Data(char data[11], ItemFinanceiro *conteudo_fi);
 
 // Verifica se existe alguma movimentação com o mesmo código da conta
-ApontadorFinanceiro Verificar_Existencia_Movimentacao(ListaFinanceira *lista, int codigo_conta);
+int Verificar_Existencia_Movimentacao(ListaFinanceira *lista, int codigo_conta);
 
 #endif

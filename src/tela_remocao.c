@@ -10,7 +10,7 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 #include "global.h"
 
 // Desenha tela de remoção de cadastros de conta
-void Tela_Remocao(Lista *lista)
+void Tela_Remocao(Lista *lista_co, ListaFinanceira *lista_fi)
 {
 
     int opcao = 0;
@@ -47,13 +47,13 @@ void Tela_Remocao(Lista *lista)
         switch (opcao)
         {
             case 1:
-                Remover(lista, opcao);
+                Remover(lista_co, lista_fi, opcao);
                 break;
             case 2:
-                Remover(lista, opcao);
+                Remover(lista_co, lista_fi, opcao);
                 break;
             case 3:
-                Remover(lista, opcao);
+                Remover(lista_co, lista_fi, opcao);
                 break;
             default:
                 return;

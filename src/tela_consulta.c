@@ -56,13 +56,13 @@ void Consulta_Contas_Bancarias(Lista *lista)
             Consulta_geral(lista);
             break;
         case 2:
-            // consulta_codigo
+            //Consulta_codigo(lista);
             break;
         case 3:
-            // consulta_ordemCodigo
+            Consulta_ordemCodigo(lista);
             break;
         case 4:
-            // consulta_alfabetica
+            Consulta_alfabetica(lista);
         default:
             break;
         }

@@ -17,7 +17,7 @@ void Cadastro_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
     int opcao;
     int cod_conta;
     int tipo_operacao;
-    int flag_data = 0;
+    int flag_data;
     int confirmacao;
     Conteudo_Financeiro temporario;
     Apontador aux_conta;

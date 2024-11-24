@@ -411,7 +411,7 @@ void Incrementar_Sequencial(ListaFinanceira *lista_fi, Conteudo_Financeiro *temp
 }
 
 // Função que recebe e compara uma data no formato xx/yy/zzzz e diz se ela é maior ou menor do que a digitada
-int Comparar_Data(char* data[11], ItemFinanceiro *conteudo_fi)
+int Comparar_Data(char data[11], ItemFinanceiro *conteudo_fi)
 {
     // Variáveis
     char dia[3], mes[3], ano[5];
@@ -436,67 +436,73 @@ int Comparar_Data(char* data[11], ItemFinanceiro *conteudo_fi)
     intMes = atoi(mes);
     intAno = atoi(ano);
 
-    // Dia usuário
-    strcpy(diaUsr, conteudo_fi->conteudo.dt_movimento);
-    diaUsr[2] = '\0'; // Adiciona o caractere de finalização de string
-
-    // Mes usuário
-    strcpy(mesUsr, conteudo_fi->conteudo.dt_movimento + 3);
-    mesUsr[2] = '\0'; // Adiciona o caractere de finalização de string
-
-    // Ano usuário
-    strcpy(anoUsr, conteudo_fi->conteudo.dt_movimento + 6);
-    anoUsr[4] = '\0'; // Adiciona o caractere de finalização de string
-
-    // Função atoi() converte um tipo de caractere ASCII em int (por isso: a -> to -> i) 
-    intDiaUsr = atoi(diaUsr);
-    intMesUsr = atoi(mesUsr);
-    intAnoUsr = atoi(anoUsr);
-
-    // Coisa feia que que compara um por um se o ano, mes e dia
-    if (intAno < intAnoUsr) 
+    if(conteudo_fi == NULL)
     {
-        return -1;
-    } 
-    else if (intAno > intAnoUsr) 
+        return 0;
+    }
+    else
     {
-        return 1;
-    } 
-    else 
-    {
-        if (intMes < intMesUsr) 
+        // Dia usuário
+        strcpy(diaUsr, conteudo_fi->conteudo.dt_movimento);
+        diaUsr[2] = '\0'; // Adiciona o caractere de finalização de string
+
+        // Mes usuário
+        strcpy(mesUsr, conteudo_fi->conteudo.dt_movimento + 3);
+        mesUsr[2] = '\0'; // Adiciona o caractere de finalização de string
+
+        // Ano usuário
+        strcpy(anoUsr, conteudo_fi->conteudo.dt_movimento + 6);
+        anoUsr[4] = '\0'; // Adiciona o caractere de finalização de string
+
+        // Função atoi() converte um tipo de caractere ASCII em int (por isso: a -> to -> i) 
+        intDiaUsr = atoi(diaUsr);
+        intMesUsr = atoi(mesUsr);
+        intAnoUsr = atoi(anoUsr);
+
+        // Coisa feia que que compara um por um se o ano, mes e dia
+        if (intAno < intAnoUsr) 
         {
             return -1;
         } 
-        else if (intMes > intMesUsr) 
+        else if (intAno > intAnoUsr) 
         {
             return 1;
-        }
-        else 
+        } 
+        else
         {
-            if (intDia < intDiaUsr) 
+            if (intMes < intMesUsr) 
             {
                 return -1;
             } 
-            else if (intDia > intDiaUsr) 
+            else if (intMes > intMesUsr) 
             {
                 return 1;
-            } 
+            }
             else 
             {
-                return 0;
+                if (intDia < intDiaUsr) 
+                {
+                    return -1;
+                } 
+                else if(intDia > intDiaUsr)
+                {
+                    return 1;
+                }
+                else if(intDia == intDiaUsr)
+                {
+                    return 1;
+                }
             }
-        }
+        }    
     }
 }
 
 // Verifica se existe alguma movimentação com o mesmo código da conta
-ApontadorFinanceiro Verificar_Existencia_Movimentacao(ListaFinanceira *lista, int codigo_conta)
+int Verificar_Existencia_Movimentacao(ListaFinanceira *lista, int codigo_conta)
 {
     //Utilizada para percorrer a lista
     ApontadorFinanceiro VariavelAuxiliar;
 
-    // Inicializa o inicio da lista com a variável criada
     VariavelAuxiliar = lista->primeiro; // lista->primeiro aponta para o primeiro registro da lista de funcionários
 
     // Realiza um loop para percorrer a lista até chegar ao ultimo registro
@@ -505,14 +511,13 @@ ApontadorFinanceiro Verificar_Existencia_Movimentacao(ListaFinanceira *lista, in
         // Verifica se o codigo procurado é igual ao codigo registrado
         if (VariavelAuxiliar->conteudo.codigo_conta == codigo_conta)
         {
-            // Se o código for igual ele retorna o ponteiro da VariavelAuxiliar que aponta para o registro que tem o mesmo código
-            return VariavelAuxiliar;
+            // Se o código for igual ele retorna 1
+            return 1;
         }
 
         // Mover o ponteiro para o proximo da lista
         VariavelAuxiliar = VariavelAuxiliar->proximo; // VariavelAuxiliar->proximo aponta para o proximo item da lista
     }
-
-    // Retornar NULL caso nenhum nada for encontrado
-    return NULL;
+    // Retornar 0 caso nenhum nada for encontrado
+    return 0;
 }
