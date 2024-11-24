@@ -365,4 +365,49 @@ int Contar_movimentacao_financerira(ListaFinanceira *lista)
     return Quant_Intens;
 }
 
+// Realizar a movimentação de valores nas movimentações bancarias
+void Realizar_Movimentacao(Conteudo_Financeiro *mov_fin, Item *conta, int tipo_operacao)
+{
+    // Variáveis
+
+    if (tipo_operacao == 1)
+    {
+        if(mov_fin->vl_movimento > (conta->conteudo.vl_saldo + conta->conteudo.vl_limite))
+        {
+            limpar_campo_opcao();
+            escrever_msg("Valor desejado ultrapassa limite da conta! Operacao impedida.");
+            getch();
+            limpar_campo_opcao();
+        }
+        else {
+            conta->conteudo.vl_saldo = conta->conteudo.vl_saldo - mov_fin->vl_movimento;
+            mov_fin->vl_saldo = conta->conteudo.vl_saldo;
+        }
+    }
+    else if(tipo_operacao == 2)
+    {
+        conta->conteudo.vl_saldo = conta->conteudo.vl_saldo + mov_fin->vl_movimento;
+        mov_fin->vl_saldo = conta->conteudo.vl_saldo;
+    }
+    else 
+    {
+        limpar_campo_opcao();
+        escrever_msg("Operacao desconhecida!");
+        getch();
+        limpar_campo_opcao();
+    }
+}
+
+// Incrementa o sequencial de movimentações financeiras
+void Incrementar_Sequencial(ListaFinanceira *lista_fi, Conteudo_Financeiro *temporario)
+{
+    // Variáveis
+    int quantidade;
+
+    // Contar quantas movimentações foram feitas
+    quantidade = Contar_movimentacao_financerira(lista_fi);
+    
+    temporario->sequencial = quantidade + 1;
+}
+
 //strcpy(dia,"data",posição);

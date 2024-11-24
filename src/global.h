@@ -17,6 +17,10 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 #include <conio.h>
 #include <locale.h>
 
+// Difinições
+#define DEBITO "Debito"
+#define CREDITO "Credito"
+
 // --------------- Estrutura de dados - Conta ----------------
 // Definir conteudo da conta
 typedef struct 
@@ -56,6 +60,7 @@ typedef struct
     int sequencial;
     int codigo_conta;
     char dt_movimento[11];
+    char destinatario[50]; // Acrescentado pois, como o professor mostrou, fica bem mais intuitivo
     char tp_movimentacao[15];
     double vl_movimento;
     double vl_saldo;
@@ -175,5 +180,11 @@ int Contar_movimentacao_financerira(ListaFinanceira *lista);
 
 // Cadastro de movimentações financeiras
 void Cadastro_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co);
+
+// Realizar a movimentação de valores nas movimentações bancarias
+void Realizar_Movimentacao(Conteudo_Financeiro *mov_fin, Item *conta, int tipo_operacao);
+
+// Incrementa o sequencial de movimentações financeiras
+void Incrementar_Sequencial(ListaFinanceira *lista_fi, Conteudo_Financeiro *temporario);
 
 #endif

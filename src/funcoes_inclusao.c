@@ -128,14 +128,14 @@ void Cadastro(Lista *lista, int opcao_lista)
             gotoxy(07, 23);
             printf("Quer gravar os dados? [1-S, 2-N]: ");
             scanf("%d", &resp);
-            if(resp < 0 || resp > 3)
+            if(resp < 1 || resp > 2)
             {
                 limpar_campo_opcao();
                 escrever_msg("Entrada invalida! Digite novamente...");
                 getch();
                 limpar_campo_opcao();
             }
-        }while (resp < 0 || resp > 3);
+        }while (resp < 1 || resp > 2);
         
         if(resp == 1)
         {

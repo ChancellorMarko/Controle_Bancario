@@ -114,7 +114,7 @@ void tela_conta(Item *ItemLista)
     printf("6 - Limite da Conta.: R$%.2lf.", ItemLista->conteudo.vl_limite);
 
     gotoxy(6,20);
-    printf("6 - Status da Conta.: %s.", ItemLista->conteudo.status);
+    printf("7 - Status da Conta.: %s.", ItemLista->conteudo.status);
 }
 
 // Escrever mensagem no campo destina a mensagens
@@ -188,36 +188,38 @@ void tela_cadastro_financeiro(ListaFinanceira *lista_fi, Item *conta)
     quant_mov = Contar_movimentacao_financerira(lista_fi);
 
     gotoxy(6, 6);
-    printf("Sequencia de Movimentacao: %dº", quant_mov);
+    printf("Sequencia de Movimentacao: %d", quant_mov + 1);
     gotoxy(6, 7);
-    printf("Banco....................: ");
+    printf("Codigo da conta..........: %d", conta->conteudo.codigo_conta);
     gotoxy(6, 8);
-    printf("Agencia..................: %s", conta->conteudo.agencia);
+    printf("Banco....................: %s", conta->conteudo.banco);
     gotoxy(6, 9);
-    printf("Numero da conta..........: %s", conta->conteudo.numero_conta);
+    printf("Agencia..................: %s", conta->conteudo.agencia);
     gotoxy(6, 10);
-    printf("Tipo de conta............: %s", conta->conteudo.tipo_conta);
+    printf("Numero da conta..........: %s", conta->conteudo.numero_conta);
     gotoxy(6, 11);
-    printf("Saldo....................: %.2lf", conta->conteudo.vl_saldo);
+    printf("Tipo de conta............: %s", conta->conteudo.tipo_conta);
     gotoxy(6, 12);
-    printf("Limite...................: %.2lf", conta->conteudo.vl_limite);
+    printf("Saldo....................: %.2lf", conta->conteudo.vl_saldo);
     gotoxy(6, 13);
+    printf("Limite...................: %.2lf", conta->conteudo.vl_limite);
+    gotoxy(6, 14);
     printf("Total (Saldo + Limite)...: %.2lf", conta->conteudo.vl_saldo + conta->conteudo.vl_limite);
 
-    gotoxy(2, 14);
-    for(x = 1; x > 79; x++)
+    for(x = 2; x <+ 79; x++)
     {
+        gotoxy(x, 15);
         printf("-");
     }
 
-    gotoxy(6, 15);
+    gotoxy(6, 16);
     printf("Data da movimentacao.....: ");
-    gotoxy(6, 15);
+    gotoxy(6, 17);
     printf("Tipo de movimnetacao.....: ");
-    gotoxy(6, 15);
-    printf("Destinatario.............: ");
-    gotoxy(6, 15);
+    gotoxy(6, 18);
+    printf("Descricao................: ");
+    gotoxy(6, 19);
     printf("Valor da movimentacao....: R$");
-    gotoxy(6, 15);
+    gotoxy(6, 20);
     printf("Novo saldo...............: R$");
 }

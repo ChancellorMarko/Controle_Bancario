@@ -140,7 +140,7 @@ void Tela_Alteracao(Lista *lista)
                             break;
                         case 7:
                             gotoxy(6,20);
-                            printf("4 - Status da Conta.: ");
+                            printf("7 - Status da Conta.: ");
                             gotoxy(28, 20);
                             printf("                                              ");
                             gotoxy(28, 20);

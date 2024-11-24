@@ -61,16 +61,16 @@ void Consulta_geral(Lista *lista)
         {
             limpar_campo_opcao();
             gotoxy(7, 23);
-            printf("Quer realizar a consulta novamente? (1- S / 0 - N): ");
+            printf("Quer realizar a consulta novamente? (1- S / 2 - N): ");
             scanf("%d",&opcao);
-            if(opcao < 0 || opcao > 1)
+            if(opcao < 1 || opcao > 2)
             {
                 limpar_campo_opcao();
                 escrever_msg("Valor invalido! Digite novamente...");
                 getch();
                 limpar_campo_opcao();
             }
-        }while(opcao < 0 || opcao > 1); 
-    } while (opcao != 0);
+        }while(opcao < 1 || opcao > 2); 
+    } while (opcao != 2);
     return;
 }
