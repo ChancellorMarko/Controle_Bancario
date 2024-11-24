@@ -112,6 +112,18 @@ int Contar_Elementos_Lista(Lista *lista);
 // Função que verifica se o código de funcionario já foi utilizado
 Apontador Verificar_Existencia(Lista *lista, int codigo_conta);
 
+
+//Função para consultar todas as contas bancárias
+void Consulta_geral(Lista *lista);
+
+//Função para consultar a conta bancária pelo código que o usuário escolher
+void Consulta_codigo(Lista *lista, int codigo_conta);
+
+// Função para consultar as contas bancárias por ordem numérica
+void Consulta_ordemCodigo(Lista *lista);
+
+//Função para consultar as contas bancárias por ordem alfabética
+void Consulta_alfabetica(Lista *lista);
 // Função de castro de contas
 void Cadastro(Lista *lista, int posicao_na_lista);
 
