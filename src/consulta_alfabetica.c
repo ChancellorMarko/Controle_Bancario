@@ -9,10 +9,11 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 
 #include "global.h"
 
-void Consulta_alfabetica(Lista *lista){
-
+void Consulta_alfabetica(Lista *lista)
+{
     int trocou;
     int linha;
+    int x;
     Apontador atual;
 
     tela();
@@ -35,7 +36,7 @@ void Consulta_alfabetica(Lista *lista){
     Apontador aux = lista->primeiro;
     while (aux != NULL)
     {
-        Apontador novoItem = (Apontador)malloc(sizeof(Item));
+        novoItem = (Apontador)malloc(sizeof(Item));
         novoItem->conteudo = aux->conteudo;
         novoItem->proximo = NULL;
         if (lista_temporaria.primeiro == NULL)
@@ -103,15 +104,11 @@ do
             printf("Cartao de Credito");
         }
 
-        gotoxy(54, linha);
-        printf("R$");
-        gotoxy(56, linha);
-        printf("%.2lf", atual->conteudo.vl_saldo);
+        gotoxy(49, linha);
+        printf("R$%.2lf", atual->conteudo.vl_saldo);
 
-        gotoxy(66, linha);
-        printf("R$");
-        gotoxy(68, linha);
-        printf("%.2lf", atual->conteudo.vl_limite);
+        gotoxy(62, linha);
+        printf("R$%.2lf", atual->conteudo.vl_limite);
 
         gotoxy(78, linha);
         printf("%s", atual->conteudo.status);
@@ -134,5 +131,6 @@ do
     gotoxy(07, 23);
     printf("Pressione qualquer tecla para continuar...");
     getch();
+    limpar_campo_opcao();
     return;
 }

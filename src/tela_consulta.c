@@ -66,8 +66,10 @@ void Consulta_Contas_Bancarias(Lista *lista)
             break;
         case 3:
             Consulta_ordemCodigo(lista);
+            Consulta_ordemCodigo(lista);
             break;
         case 4:
+            Consulta_alfabetica(lista);
             Consulta_alfabetica(lista);
         default:
             break;

@@ -17,6 +17,7 @@ void Cadastro_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
     int opcao;
     int cod_conta;
     int tipo_operacao;
+    int flag_data;
     int confirmacao;
     Conteudo_Financeiro temporario;
     Apontador aux_conta;
@@ -60,10 +61,26 @@ void Cadastro_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
             Incrementar_Sequencial(lista_fi, &temporario);
 
             // Data
-            gotoxy(33, 16);
-            fflush(stdin);
-            fgets(temporario.dt_movimento, 11, stdin);
-
+            do 
+            {
+                escrever_msg("Utilize o formato: dd/mm/aaaa.");
+                flag_data = 0;
+                gotoxy(33, 16);
+                fflush(stdin);
+                fgets(temporario.dt_movimento, 11, stdin);
+                flag_data = Comparar_Data(temporario.dt_movimento,lista_fi->ultimo );
+                if(flag_data == -1)
+                {
+                    limpar_campo_opcao();
+                    gotoxy(7, 23);
+                    printf("Data invalida! Digite uma data superior a: %s", lista_fi->ultimo->conteudo.dt_movimento);
+                    getch();
+                    gotoxy(33, 16);
+                    printf("                ");
+                    limpar_campo_opcao();
+                }
+            }while(flag_data == -1);
+            
             // Tipo de transação
             do
             {
@@ -93,6 +110,7 @@ void Cadastro_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
                         strcpy(temporario.tp_movimentacao, CREDITO);
                         break;
                 }
+                limpar_campo_opcao();
             }while(tipo_operacao < 1 || tipo_operacao > 2);
 
             // Destinatário

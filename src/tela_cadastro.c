@@ -9,7 +9,8 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 
 #include "global.h"
 
-void Tela_Cadastro(Lista *lista)
+// Desenha a tela que servirá para direcionar o usuário as funções de cadastro de conta
+void Tela_Cadastro(Lista *lista, ListaFinanceira *lista_fi)
 {
     // Variaveis
     int opcao = 0;
@@ -58,7 +59,7 @@ void Tela_Cadastro(Lista *lista)
                 Consulta_Contas_Bancarias(lista);
                 break;
             case 4:
-                Tela_Remocao(lista);
+                Tela_Remocao(lista, lista_fi);
                 break;
             default:
                 return;

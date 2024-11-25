@@ -57,7 +57,7 @@ int main()
         switch (opcao) 
         {
             case 1:
-                Tela_Cadastro(&lista_co);
+                Tela_Cadastro(&lista_co, &Lista_fi);
                 break;
             case 2:
                 Tela_Financeiro(&Lista_fi, &lista_co);

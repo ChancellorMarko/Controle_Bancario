@@ -118,8 +118,13 @@ void tela_conta(Item *ItemLista)
 }
 
 // Escrever mensagem no campo destina a mensagens
+<<<<<<< HEAD
 void escrever_msg(char mensagem[70])
+=======
+void escrever_msg(const char* mensagem[70])
+>>>>>>> 880525ee69e84df579dc4769e7e7857c3f1f00bc
 {
+    limpar_campo_opcao();
     gotoxy(7, 23);
     printf("%s", mensagem);
 }

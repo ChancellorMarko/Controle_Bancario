@@ -10,7 +10,8 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 #include "global.h"
 
 // Função de consulta o código da conta para a função de remoção
-void Consulta_codigo(Lista *lista, int codigo_conta)
+/*
+void Consulta_codigo(Lista *lista)
 {
     int resp = 0;
 
@@ -85,3 +86,4 @@ void Consulta_codigo(Lista *lista, int codigo_conta)
         return;
     }
 }
+*/
