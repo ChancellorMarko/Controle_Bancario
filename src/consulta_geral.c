@@ -18,7 +18,7 @@ void Consulta_geral(Lista *lista)
     do
     {
         tela();
-        gotoxy(30, 3);
+        gotoxy(20, 3);
         printf("[Consulta geral de todas as contas]");
 
         aux = lista->primeiro;

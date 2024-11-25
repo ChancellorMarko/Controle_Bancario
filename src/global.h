@@ -128,7 +128,7 @@ void Consulta_alfabetica(Lista *lista);
 void Cadastro(Lista *lista, int posicao_na_lista);
 
 // Escrever mensagem no campo destina a mensagens
-void escrever_msg(char* mensagem[70]);
+void escrever_msg(char mensagem[70]);
 
 // Função para limpar a memória da lista de cadastro de contas
 void Limpar_Mem_Contas(Lista *lista);
@@ -198,5 +198,17 @@ void Realizar_Movimentacao(Conteudo_Financeiro *mov_fin, Item *conta, int tipo_o
 
 // Incrementa o sequencial de movimentações financeiras
 void Incrementar_Sequencial(ListaFinanceira *lista_fi, Conteudo_Financeiro *temporario);
+
+// Função para consultar as contas por ordem numérica
+void Consulta_ordemCodigo(Lista *lista);
+
+// Função para consultar as contas bancárias por ordem alfabética
+void Consulta_alfabetica(Lista *lista);
+
+// Função para criar uma telinha para a consulta por ordem numérica
+void TelaLinhasConsulta();
+
+// Função para exibir as informações da conta bancária na tela
+void TelaExibirConta(Apontador aux);
 
 #endif

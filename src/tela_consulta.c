@@ -14,6 +14,7 @@ void Consulta_Contas_Bancarias(Lista *lista)
 {
 
     int opcao = 0;
+    int codigo_conta;
 
     do
     {
@@ -32,7 +33,7 @@ void Consulta_Contas_Bancarias(Lista *lista)
         gotoxy(4, 14);
         printf("4 - Consultar por ordem alfabetica");
         gotoxy(4, 16);
-        printf("0 - Sair");
+        printf("0 - Retornar ao menu anterior");
 
         do
         {
@@ -56,13 +57,18 @@ void Consulta_Contas_Bancarias(Lista *lista)
             Consulta_geral(lista);
             break;
         case 2:
-            // consulta_codigo
+            limpar_campo_opcao();
+            gotoxy(7, 23);
+            printf("Digite o codigo da conta que deseja: ");
+            gotoxy(44, 23);
+            scanf("%d", &codigo_conta);
+            Consulta_codigo(lista, codigo_conta);
             break;
         case 3:
-            // consulta_ordemCodigo
+            Consulta_ordemCodigo(lista);
             break;
         case 4:
-            // consulta_alfabetica
+            Consulta_alfabetica(lista);
         default:
             break;
         }

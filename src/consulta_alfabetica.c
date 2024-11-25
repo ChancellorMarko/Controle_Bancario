@@ -15,14 +15,13 @@ void Consulta_alfabetica(Lista *lista){
     int linha;
     Apontador atual;
 
-    // Verifica se a lista esta vazia
-
     tela();
     //TelaOrdemAlfabetica();
 
+    // Verifica se a lista esta vazia
     if (lista->primeiro == NULL)
     {
-        gotoxy(07, 23);
+        gotoxy(7, 23);
         printf("A lista está vazia.");
         return;
     }
@@ -32,6 +31,7 @@ void Consulta_alfabetica(Lista *lista){
     lista_temporaria.primeiro = NULL;
     lista_temporaria.ultimo = NULL;
 
+    // Cria um apontador auxiliar 
     Apontador aux = lista->primeiro;
     while (aux != NULL)
     {
@@ -52,24 +52,26 @@ void Consulta_alfabetica(Lista *lista){
     }
 
     // Ordenação da copia da lista baseada no Banco
-    do
-    {
-        trocou = 0;
-        atual = lista_temporaria.primeiro;
+do
+{
+    trocou = 0;
+    atual = lista_temporaria.primeiro;
 
-        while (atual->proximo != NULL)
+    Conteudo_Conta aux2; // Declarar aux fora do loop interno
+
+    while (atual->proximo != NULL)
+    {
+        if (strcmp(atual->conteudo.banco, atual->proximo->conteudo.banco) > 0)
         {
-            if (strcmp(atual->conteudo.banco, atual->proximo->conteudo.banco) > 0)
-            {
-                // Troca os conteudos
-                Conteudo_Conta aux = atual->conteudo;
-                atual->conteudo = atual->proximo->conteudo;
-                atual->proximo->conteudo = aux;
-                trocou = 1;
-            }
-            atual = atual->proximo;
+            // Troca os conteúdos usando aux
+            aux2 = atual->conteudo;  // Salvar conteúdo do nó atual
+            atual->conteudo = atual->proximo->conteudo;
+            atual->proximo->conteudo = aux2;
+            trocou = 1;
         }
-    } while (trocou);
+        atual = atual->proximo;  // Avançar para o próximo nó
+    }
+} while (trocou);
 
     linha = 7; // Começa abaixo
     atual = lista_temporaria.primeiro;
@@ -83,21 +85,21 @@ void Consulta_alfabetica(Lista *lista){
         printf("%s", atual->conteudo.banco);
 
         gotoxy(24, linha);
-        printf("%d", atual->conteudo.agencia);
+        printf("%s", atual->conteudo.agencia);
 
         gotoxy(30, linha);
-        printf("%d", atual->conteudo.numero_conta);
+        printf("%s", atual->conteudo.numero_conta);
 
         gotoxy(39, linha);
-        if (atual->conteudo.tipo_conta == 'Corrente')
+        if (strcmp(atual->conteudo.tipo_conta, "Corrente") == 0)
         {
             printf("Corrente");
         }
-        else if (atual->conteudo.tipo_conta == 'Poupanca')
+        else if (strcmp(atual->conteudo.tipo_conta, "Poupanca") == 0)
         {
             printf("Poupanca");
         }
-        else if (atual->conteudo.tipo_conta == 'Cartao de credito'){
+        else if (strcmp(atual->conteudo.tipo_conta, "Cartao de credito") == 0){
             printf("Cartao de Credito");
         }
 
@@ -112,7 +114,7 @@ void Consulta_alfabetica(Lista *lista){
         printf("%.2lf", atual->conteudo.vl_limite);
 
         gotoxy(78, linha);
-        printf("%d", atual->conteudo.status);
+        printf("%s", atual->conteudo.status);
 
         linha++; // Avança para a próxima linha
 
@@ -121,12 +123,14 @@ void Consulta_alfabetica(Lista *lista){
             gotoxy(07, 23);
             printf("Pressione qualquer tecla para continuar...");
             getch();
-            TelaConsultaEmLinha(); // Redesenha tela
+            TelaLinhasConsulta(); // Redesenha tela
             linha = 7;             // Reinicia a contagem de linhas
         }
 
         atual = atual->proximo;
     }
+
+    limpar_campo_opcao();
     gotoxy(07, 23);
     printf("Pressione qualquer tecla para continuar...");
     getch();
