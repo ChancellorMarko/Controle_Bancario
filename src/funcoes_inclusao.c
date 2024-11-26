@@ -30,17 +30,17 @@ void Cadastro(Lista *lista, int opcao_lista)
         // Mostrar opção escolhida
         if(opcao_lista == 1)
         {
-            gotoxy(32,3);
+            gotoxy(27,3);
             printf("[Final da Lista]");
         }
         else if(opcao_lista == 2)
         {
-            gotoxy(32,3);
+            gotoxy(27,3);
             printf("[Inicio da Lista]");
         }
         else if(opcao_lista == 3)
         {
-            gotoxy(32,3);
+            gotoxy(27,3);
             printf("[Posicao da Lista]");
         }
 
@@ -208,7 +208,7 @@ void Cadastro(Lista *lista, int opcao_lista)
         do
         {
             gotoxy(07, 23);
-            printf("Quer cadastrar outro? 1-Sim, 2-Nao: ");
+            printf("Quer cadastrar outro? [1-S, 2-N]: ");
             scanf("%d", &opcao);
             if(opcao < 0 || opcao > 3)
             {

@@ -11,30 +11,35 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 
 // Função de consulta o código da conta para a função de remoção
 
-void Consulta_codigo(Lista *lista)
+void Consulta_codigo(Lista *lista, int codigo_conta)
 {
-    int resp = 0;
-    int codigo_conta;
+    int resp;
 
-    tela();
-    gotoxy(20, 3);
-    printf("[Consulta pelo codigo da conta]");
-
-    if (codigo_conta < 0)
+    do
     {
-        limpar_campo_opcao();
-        gotoxy(7, 23);
-        printf("Codigo invalido! Digite novamente...");
-        getch();
-        limpar_campo_opcao();
-    }
+        tela();
+        gotoxy(20, 3);
+        printf("[Consulta pelo codigo da conta]");
 
-    // Criando um apontador auxiliar para inicializar apontando pra o primeiro da lista
-    Apontador aux = lista->primeiro;
+        // Validar código da conta
+        if (codigo_conta < 0)
+        {
+            limpar_campo_opcao();
+            gotoxy(7, 23);
+            printf("Codigo invalido! Digite novamente...");
+            getch();
+            limpar_campo_opcao();
+            return; // Sai da função se o código for inválido
+        }
 
-    while (codigo_conta != aux->conteudo.codigo_conta)
-    {
-        aux = aux->proximo;
+        // Apontador auxiliar para navegar na lista
+        Apontador aux = lista->primeiro;
+
+        // Buscar o código na lista
+        while (aux != NULL && codigo_conta != aux->conteudo.codigo_conta)
+        {
+            aux = aux->proximo;
+        }
 
         if (aux == NULL)
         {
@@ -43,15 +48,12 @@ void Consulta_codigo(Lista *lista)
             printf("Codigo nao encontrado.");
             getch();
             limpar_campo_opcao();
-            return;
+            return; // Sai da função se o código não for encontrado
         }
-    }
-    do
-    {
-        if(resp == 1){
+
+        // Exibir informações da conta
         gotoxy(6, 6);
-        printf("Codigo da conta: ");
-        scanf("%d", &codigo_conta);
+        printf("Codigo da conta: %d", codigo_conta);
         gotoxy(6, 8);
         printf("Nome do banco..: %s", aux->conteudo.banco);
         gotoxy(6, 10);
@@ -65,25 +67,31 @@ void Consulta_codigo(Lista *lista)
         gotoxy(6, 18);
         printf("Status da conta: %s", aux->conteudo.status);
 
+        // Perguntar se deseja consultar outra conta
         gotoxy(7, 23);
         printf("Deseja consultar outra conta? [1-S, 2-N]: ");
         gotoxy(49, 23);
         scanf("%d", &resp);
-        limpar_campo_opcao();
-        }
 
-        if (resp < 0 || resp > 3)
+        // Validar resposta
+        if (resp == 1)
+        {
+            limpar_campo_opcao();
+            gotoxy(6, 6);
+            printf("Informe o codigo da conta: ");
+            scanf("%d", &codigo_conta);
+        }
+        else if (resp != 2)
         {
             limpar_campo_opcao();
             gotoxy(7, 23);
             printf("Entrada invalida! Digite novamente...");
             getch();
             limpar_campo_opcao();
+            resp = 1; // Força a repetição do laço
         }
     } while (resp == 1);
 
-    if (resp == 2)
-    {
-        return;
-    }
+    return;
 }
+

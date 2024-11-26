@@ -20,13 +20,13 @@ void Tela_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
     {
         tela();
         
-        gotoxy(30, 3);
+        gotoxy(25, 3);
         printf("[Movimentacao Financeira]");
 
         gotoxy(4, 6);
         printf("1 - Movimentacao de Credito e Debito.");
         gotoxy(4, 8);
-        printf("2 - Cunsultar movimentacoes bancarias.");
+        printf("2 - Consultar movimentacoes bancarias.");
         gotoxy(4, 10);
         printf("0 - Voltar.");
 
@@ -50,7 +50,7 @@ void Tela_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
                 Cadastro_Financeiro(lista_fi, lista_co);
                 break;
             case 2:
-                //Consulta_Contas_Bancarias(lista_co);
+                ConsultaMovimentacaoFinanceira(lista, lista_fi);
                 break;
             default:
                 return;

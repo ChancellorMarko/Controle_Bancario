@@ -72,5 +72,6 @@ void Consulta_geral(Lista *lista)
             }
         }while(opcao < 1 || opcao > 2); 
     } while (opcao != 2);
+    getch();
     return;
 }

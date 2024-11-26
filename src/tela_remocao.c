@@ -19,7 +19,7 @@ void Tela_Remocao(Lista *lista_co, ListaFinanceira *lista_fi)
     {
         tela();
 
-        gotoxy(32, 3);
+        gotoxy(27, 3);
         printf("[Remocao de conta]");
         gotoxy(4, 6);
         printf("1 - Remover conta (Final da lista). ");

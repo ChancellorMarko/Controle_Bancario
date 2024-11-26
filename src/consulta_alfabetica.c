@@ -13,12 +13,15 @@ void Consulta_alfabetica(Lista *lista)
 {
     int trocou;
     int linha;
-    // int x;
+    int x;
     Apontador atual;
     Apontador novoItem;
 
-    tela();
     TelaLinhasConsulta();
+    tela();
+
+    gotoxy(20, 3);
+    printf("[Consulta por ordem alfabetica]");
 
     // Verifica se a lista esta vazia
     if (lista->primeiro == NULL)
@@ -27,13 +30,24 @@ void Consulta_alfabetica(Lista *lista)
         printf("A lista está vazia.");
         return;
     }
+    for (x = 1; x < 79; x++)
+    {
+        gotoxy(x, 6);
+        printf("-");
+    }
+    gotoxy(1, 6);
+    printf("+");
+    gotoxy(79, 6);
+    printf("+");
+    gotoxy(2, 5);
+    printf("N |Banco           |N.Ag   |N.Con  |Tipo.C    |Saldo     |Limite   |Status");
 
     // Criar uma copia da lista original
     Lista lista_temporaria;
     lista_temporaria.primeiro = NULL;
     lista_temporaria.ultimo = NULL;
 
-    // Cria um apontador auxiliar 
+    // Cria um apontador auxiliar
     Apontador aux = lista->primeiro;
     while (aux != NULL)
     {
@@ -54,26 +68,26 @@ void Consulta_alfabetica(Lista *lista)
     }
 
     // Ordenação da copia da lista baseada no Banco
-do
-{
-    trocou = 0;
-    atual = lista_temporaria.primeiro;
-
-    Conteudo_Conta aux2; // Declarar aux fora do loop interno
-
-    while (atual->proximo != NULL)
+    do
     {
-        if (strcmp(atual->conteudo.banco, atual->proximo->conteudo.banco) > 0)
+        trocou = 0;
+        atual = lista_temporaria.primeiro;
+
+        Conteudo_Conta aux2; // Declarar aux fora do loop interno
+
+        while (atual->proximo != NULL)
         {
-            // Troca os conteúdos usando aux
-            aux2 = atual->conteudo;  // Salvar conteúdo do nó atual
-            atual->conteudo = atual->proximo->conteudo;
-            atual->proximo->conteudo = aux2;
-            trocou = 1;
+            if (strcmp(atual->conteudo.banco, atual->proximo->conteudo.banco) > 0)
+            {
+                // Troca os conteúdos usando aux
+                aux2 = atual->conteudo; // Salvar conteúdo do nó atual
+                atual->conteudo = atual->proximo->conteudo;
+                atual->proximo->conteudo = aux2;
+                trocou = 1;
+            }
+            atual = atual->proximo; // Avançar para o próximo nó
         }
-        atual = atual->proximo;  // Avançar para o próximo nó
-    }
-} while (trocou);
+    } while (trocou);
 
     linha = 7; // Começa abaixo
     atual = lista_temporaria.primeiro;
@@ -101,7 +115,8 @@ do
         {
             printf("Poupanca");
         }
-        else if (strcmp(atual->conteudo.tipo_conta, "Cartao de credito") == 0){
+        else if (strcmp(atual->conteudo.tipo_conta, "Cartao de credito") == 0)
+        {
             printf("Cartao de Credito");
         }
 
@@ -122,7 +137,7 @@ do
             printf("Pressione qualquer tecla para continuar...");
             getch();
             TelaLinhasConsulta(); // Redesenha tela
-            linha = 7;             // Reinicia a contagem de linhas
+            linha = 7;            // Reinicia a contagem de linhas
         }
 
         atual = atual->proximo;

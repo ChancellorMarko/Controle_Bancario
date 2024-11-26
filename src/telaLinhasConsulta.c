@@ -54,6 +54,7 @@ void TelaLinhasConsulta()
     gotoxy(78, 5);
     printf("St");
 
+
     gotoxy(43, 14);
     printf("Saldo Total: R$           R$");
 }

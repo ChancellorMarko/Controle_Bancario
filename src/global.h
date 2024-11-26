@@ -118,7 +118,7 @@ Apontador Verificar_Existencia(Lista *lista, int codigo_conta);
 void Consulta_geral(Lista *lista);
 
 //Função para consultar a conta bancária pelo código que o usuário escolher
-void Consulta_codigo(Lista *lista);
+void Consulta_codigo(Lista *lista, int codigo_conta);
 
 // Função para consultar as contas bancárias por ordem numérica
 void Consulta_ordemCodigo(Lista *lista);
@@ -219,5 +219,6 @@ int Comparar_Data(char data[11], ItemFinanceiro *conteudo_fi);
 // Verifica se existe alguma movimentação com o mesmo código da conta
 int Verificar_Existencia_Movimentacao(ListaFinanceira *lista, int codigo_conta);
 
-
+// Função de consultar as movimentações financeiras
+void ConsultaMovimentacaoFinanceira(Lista *lista, ListaFinanceira *lista_fi);
 #endif

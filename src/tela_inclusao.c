@@ -18,7 +18,7 @@ void Tela_Inclusao(Lista *lista)
     {
         tela();
         
-        gotoxy(32, 3);
+        gotoxy(27, 3);
         printf("[Inclusao de conta]");
 
         gotoxy(4, 6);

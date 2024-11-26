@@ -19,7 +19,7 @@ void Tela_Cadastro(Lista *lista, ListaFinanceira *lista_fi)
     {
         tela();
         
-        gotoxy(32, 3);
+        gotoxy(27, 3);
         printf("[Cadastro de conta]");
 
         gotoxy(4, 6);

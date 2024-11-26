@@ -18,8 +18,11 @@ void Consulta_ordemCodigo(Lista *lista)
     Apontador atual;
     Apontador anterior = NULL;
 
-    tela();
     TelaLinhasConsulta();
+    tela();
+
+    gotoxy(24, 3);
+    printf("[Consulta por ordem numerica]");
 
     if (lista->primeiro == NULL || lista->primeiro->proximo == NULL)
     {
@@ -29,8 +32,8 @@ void Consulta_ordemCodigo(Lista *lista)
         return;
     }
 
-    // Desenhar cabeçalho
-    for(x = 1; x < 79; x++)
+    // Desenhar cabeçario
+    for (x = 1; x < 79; x++)
     {
         gotoxy(x, 6);
         printf("-");
@@ -40,14 +43,14 @@ void Consulta_ordemCodigo(Lista *lista)
     gotoxy(79, 6);
     printf("+");
     gotoxy(2, 5);
-    printf("N |Banco               |N.Ag  |N.Con  |Tipo.C  |Saldo      |Limite   |Status");
+    printf("N |Banco           |N.Ag   |N.Con  |Tipo.C    |Saldo     |Limite   |Status");
 
     // Criar uma cópia da lista original
     Lista lista_temporaria;
     lista_temporaria.primeiro = NULL;
     lista_temporaria.ultimo = NULL;
 
-    // Cria um ponteiro auxiliar 
+    // Cria um ponteiro auxiliar
     Apontador aux = lista->primeiro;
     while (aux != NULL)
     {
@@ -116,7 +119,8 @@ void Consulta_ordemCodigo(Lista *lista)
         {
             printf("Poupanca");
         }
-        else if (strcmp(atual->conteudo.tipo_conta, "Cartao de Credito") == 0){
+        else if (strcmp(atual->conteudo.tipo_conta, "Cartao de Credito") == 0)
+        {
             printf("Cartao de Credito");
         }
 
@@ -136,8 +140,8 @@ void Consulta_ordemCodigo(Lista *lista)
             gotoxy(07, 23);
             printf("Pressione qualquer tecla para continuar...");
             getch();
-            TelaLinhasConsulta(); 
-            linha = 7;             // Reinicia a contagem de linhas
+            TelaLinhasConsulta();
+            linha = 7; // Reinicia a contagem de linhas
         }
 
         atual = atual->proximo;

@@ -21,7 +21,7 @@ void Consulta_Contas_Bancarias(Lista *lista)
 
         tela();
 
-        gotoxy(32, 3);
+        gotoxy(25, 3);
         printf("[Menu de Consulta de conta]");
 
         gotoxy(4, 8);
@@ -62,7 +62,7 @@ void Consulta_Contas_Bancarias(Lista *lista)
             printf("Digite o codigo da conta que deseja: ");
             gotoxy(44, 23);
             scanf("%d", &codigo_conta);
-            Consulta_codigo(lista);
+            Consulta_codigo(lista, codigo_conta);
             break;
         case 3:
             Consulta_ordemCodigo(lista);
