@@ -495,7 +495,8 @@ int Comparar_Data(char data[11], ItemFinanceiro *conteudo_fi)
                 }
             }
         }    
-    }
+    } 
+    return 0;
 }
 
 // Verifica se existe alguma movimentação com o mesmo código da conta

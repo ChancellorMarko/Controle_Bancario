@@ -62,14 +62,12 @@ void Consulta_Contas_Bancarias(Lista *lista)
             printf("Digite o codigo da conta que deseja: ");
             gotoxy(44, 23);
             scanf("%d", &codigo_conta);
-            Consulta_codigo(lista, codigo_conta);
+            Consulta_codigo(lista);
             break;
         case 3:
             Consulta_ordemCodigo(lista);
-            Consulta_ordemCodigo(lista);
             break;
         case 4:
-            Consulta_alfabetica(lista);
             Consulta_alfabetica(lista);
         default:
             break;

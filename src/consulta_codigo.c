@@ -10,10 +10,11 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 #include "global.h"
 
 // Função de consulta o código da conta para a função de remoção
-/*
+
 void Consulta_codigo(Lista *lista)
 {
     int resp = 0;
+    int codigo_conta;
 
     tela();
     gotoxy(20, 3);
@@ -86,4 +87,3 @@ void Consulta_codigo(Lista *lista)
         return;
     }
 }
-*/

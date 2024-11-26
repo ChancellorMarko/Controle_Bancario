@@ -10,19 +10,21 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 #include "global.h"
 
 // Função para posicionar o cursor em um determinado ponto da tela
-void gotoxy(int x, int y)
-{
-    COORD coord;
-    coord.X = (short)x;
-    coord.Y = (short)y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
 
-void TelaLinhasConsulta(){
+// void gotoxy(int x, int y)
+// {
+//     COORD coord;
+//     coord.X = (short)x;
+//     coord.Y = (short)y;
+//     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+// }
+
+void TelaLinhasConsulta()
+{
 
     // int lin;
-int col = 0;
-    
+    int col = 0;
+
     system("cls");
 
     gotoxy(col, 6);
@@ -54,9 +56,4 @@ int col = 0;
 
     gotoxy(43, 14);
     printf("Saldo Total: R$           R$");
-    
 }
-
-
-
-

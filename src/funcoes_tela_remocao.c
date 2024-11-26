@@ -205,7 +205,7 @@ void Remover(Lista *lista, ListaFinanceira *lista_fi, int opcao_lista)
             }
             // Percorre até o nó anterior da posição desejada
             P = lista->primeiro;
-            for (int x = 0; x < posicao - 1 && P != NULL; x++) {
+            for (x = 0; x < posicao - 1 && P != NULL; x++) {
             P = P->proximo;
             }
 

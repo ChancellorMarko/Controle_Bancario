@@ -13,11 +13,12 @@ void Consulta_alfabetica(Lista *lista)
 {
     int trocou;
     int linha;
-    int x;
+    // int x;
     Apontador atual;
+    Apontador novoItem;
 
     tela();
-    //TelaOrdemAlfabetica();
+    TelaLinhasConsulta();
 
     // Verifica se a lista esta vazia
     if (lista->primeiro == NULL)

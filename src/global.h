@@ -130,11 +130,10 @@ void Consulta_alfabetica(Lista *lista);
 void Cadastro(Lista *lista, int posicao_na_lista);
 
 // Escrever mensagem no campo destina a mensagens
-<<<<<<< HEAD
+
 void escrever_msg(char mensagem[70]);
-=======
-void escrever_msg(const char* mensagem[70]);
->>>>>>> 880525ee69e84df579dc4769e7e7857c3f1f00bc
+
+// void escrever_msg(const char* mensagem[70]);
 
 // Função para limpar a memória da lista de cadastro de contas
 void Limpar_Mem_Contas(Lista *lista);
@@ -202,7 +201,6 @@ void Realizar_Movimentacao(Conteudo_Financeiro *mov_fin, Item *conta, int tipo_o
 // Incrementa o sequencial de movimentações financeiras
 void Incrementar_Sequencial(ListaFinanceira *lista_fi, Conteudo_Financeiro *temporario);
 
-<<<<<<< HEAD
 // Função para consultar as contas por ordem numérica
 void Consulta_ordemCodigo(Lista *lista);
 
@@ -214,12 +212,12 @@ void TelaLinhasConsulta();
 
 // Função para exibir as informações da conta bancária na tela
 void TelaExibirConta(Apontador aux);
-=======
+
 // Função que recebe e compara uma data no formato xx/yy/zzzz e diz se ela é maior ou menor do que a digitada
 int Comparar_Data(char data[11], ItemFinanceiro *conteudo_fi);
 
 // Verifica se existe alguma movimentação com o mesmo código da conta
 int Verificar_Existencia_Movimentacao(ListaFinanceira *lista, int codigo_conta);
->>>>>>> 880525ee69e84df579dc4769e7e7857c3f1f00bc
+
 
 #endif
