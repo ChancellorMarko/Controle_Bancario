@@ -128,6 +128,9 @@ void Cadastro_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
             gotoxy(35, 20);
             printf("%.2lf", temporario.vl_saldo);
 
+            // Inserir o código da conta na movimentação
+            temporario.codigo_conta = aux_conta->conteudo.codigo_conta;
+
             do 
             {
                 limpar_campo_opcao();
@@ -144,6 +147,7 @@ void Cadastro_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
 
             if(confirmacao == 1)
             {
+                // Movimentação de ponteiros
                 P = (ApontadorFinanceiro)malloc(sizeof(ItemFinanceiro));
                 P->anterior = NULL;
                 P->proximo = NULL;

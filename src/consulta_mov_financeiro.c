@@ -127,13 +127,11 @@ void ConsultaMovimentacaoFinanceira(ListaFinanceira *lista_fi, Lista *lista_co)
 
         // Caso nenhuma movimentação tenha sido encontrada
         if (linha == 9) {
-            gotoxy(7, 23);
-            printf("Nenhuma movimentacao encontrada para esta conta.");
+            escrever_msg("Nenhuma movimentacao encontrada para esta conta.");
             getch(); 
         }
 
-        gotoxy(07, 23);
-        printf("Deseja consultar outro codigo? [1-S, 2-N]: ");
+        escrever_msg("Deseja consultar outro codigo? [1-S, 2-N]: ");
         gotoxy(50, 23);
         scanf("%d", &resp);
 

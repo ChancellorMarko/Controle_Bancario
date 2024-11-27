@@ -297,7 +297,7 @@ ListaFinanceira LerListaFinanceira()
         while (fread(&conteudo_auxiliar, sizeof(Conteudo_Financeiro), 1, banco_de_dados)) 
         {
             // Adicionar conteudos lido em posições da lista (sempre no final mantendo a ordem anterior)
-            Adicionar_Movimentacoes(&lista, conteudo_auxiliar);    
+            Adicionar_Movimentacoes(&lista, conteudo_auxiliar);
         }
     }
 
