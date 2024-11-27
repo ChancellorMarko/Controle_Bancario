@@ -27,15 +27,15 @@ void Cadastro_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
     {
         tela();
 
-        gotoxy(32, 3);
-        printf("[Codastro Financeiro]");
+        gotoxy(27, 3);
+        printf("[Cadastro Financeiro]");
 
         do {
             // Verificação do código da conta
             do 
             {
                 limpar_campo_opcao();
-                escrever_msg("Digite o codigo da conta (0 - Sair): ");
+                escrever_msg("Digite o codigo da conta [0 - Sair]: ");
                 scanf("%d", &cod_conta);
                 aux_conta = Verificar_Existencia(lista_co, cod_conta);
                 if(cod_conta == 0)
@@ -131,7 +131,7 @@ void Cadastro_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
             do 
             {
                 limpar_campo_opcao();
-                escrever_msg("Confirmar movimentacao? (1 - S/2 - N): ");
+                escrever_msg("Confirmar movimentacao? [1-S, 2-N]: ");
                 scanf("%d", &confirmacao);
                 if(confirmacao < 1 || confirmacao > 2)
                 {
@@ -167,7 +167,7 @@ void Cadastro_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
         do 
         {
             limpar_campo_opcao();
-            escrever_msg("Cadastrar outra movimentacao? (1 - S/2 - N): ");
+            escrever_msg("Cadastrar outra movimentacao? [1-S, 2-N]: ");
             scanf("%d", &opcao);
             if(opcao < 1 || opcao > 2)
             {

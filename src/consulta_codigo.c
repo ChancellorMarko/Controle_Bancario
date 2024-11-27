@@ -61,9 +61,9 @@ void Consulta_codigo(Lista *lista, int codigo_conta)
         gotoxy(6, 12);
         printf("Tipo da conta..: %s", aux->conteudo.tipo_conta);
         gotoxy(6, 14);
-        printf("Saldo da conta.: %.2f", aux->conteudo.vl_saldo);
+        printf("Saldo da conta.: %.f", aux->conteudo.vl_saldo);
         gotoxy(6, 16);
-        printf("Limite da conta: %.2f", aux->conteudo.vl_limite);
+        printf("Limite da conta: %.f", aux->conteudo.vl_limite);
         gotoxy(6, 18);
         printf("Status da conta: %s", aux->conteudo.status);
 

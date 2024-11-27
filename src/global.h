@@ -220,5 +220,8 @@ int Comparar_Data(char data[11], ItemFinanceiro *conteudo_fi);
 int Verificar_Existencia_Movimentacao(ListaFinanceira *lista, int codigo_conta);
 
 // Função de consultar as movimentações financeiras
-void ConsultaMovimentacaoFinanceira(Lista *lista, ListaFinanceira *lista_fi);
+void ConsultaMovimentacaoFinanceira(ListaFinanceira *lista_fi, Lista *lista_co);
+
+Apontador Retornar_codigo(Lista * lista, int codigo_conta);
+
 #endif

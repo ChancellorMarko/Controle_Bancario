@@ -42,9 +42,9 @@ void Consulta_geral(Lista *lista)
                 gotoxy(6, 12);
                 printf("Tipo da conta..: %s", aux->conteudo.tipo_conta);
                 gotoxy(6, 14);
-                printf("Saldo da conta.: %.2f", aux->conteudo.vl_saldo);
+                printf("Saldo da conta.: %.f", aux->conteudo.vl_saldo);
                 gotoxy(6, 16);
-                printf("Limite da conta: %.2f", aux->conteudo.vl_limite);
+                printf("Limite da conta: %.f", aux->conteudo.vl_limite);
                 gotoxy(6, 18);
                 printf("Status da conta: %s", aux->conteudo.status);
 
@@ -61,7 +61,7 @@ void Consulta_geral(Lista *lista)
         {
             limpar_campo_opcao();
             gotoxy(7, 23);
-            printf("Quer realizar a consulta novamente? (1- S / 2 - N): ");
+            printf("Quer realizar a consulta novamente? [1-S, 2-N]: ");
             scanf("%d",&opcao);
             if(opcao < 1 || opcao > 2)
             {

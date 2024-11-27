@@ -150,31 +150,31 @@ void tela_consulta_Financeira()
 
     // Campo do código da conta
     gotoxy(2, 5);
-    printf("Codigo da Conta: ");
+    printf("Codigo: ");
 
     // Parte da data
     gotoxy(2, 7);
     printf("Data:     |");
     gotoxy(2, 8);
-    printf("----------|");
+    printf("-----------");
 
     // Parte do Destinatário
     gotoxy(13, 7);
-    printf("Destinatario:                 |");
+    printf("Destinatario:               |");
     gotoxy(13, 8);
-    printf("------------------------------|");
+    printf("-----------------------------");
 
     // Parte do tipo de movimentação
-    gotoxy(44, 7);
+    gotoxy(42, 7);
     printf("Tipo:   |");
-    gotoxy(44, 8);
-    printf("--------|");
+    gotoxy(42, 8);
+    printf("---------");
 
     // parte do valor
-    gotoxy(53, 7);
-    printf("Vl.Trans:    |");
-    gotoxy(53, 8);
-    printf("-------------|");
+    gotoxy(51, 7);
+    printf("Vl.Trans:      |");
+    gotoxy(51, 8);
+    printf("----------------");
 
     // Parte do saldo ao final da transação
     gotoxy(67, 7);
@@ -220,7 +220,7 @@ void tela_cadastro_financeiro(ListaFinanceira *lista_fi, Item *conta)
     gotoxy(6, 16);
     printf("Data da movimentacao.....: ");
     gotoxy(6, 17);
-    printf("Tipo de movimnetacao.....: ");
+    printf("Tipo de movimentacao.....: ");
     gotoxy(6, 18);
     printf("Descricao................: ");
     gotoxy(6, 19);

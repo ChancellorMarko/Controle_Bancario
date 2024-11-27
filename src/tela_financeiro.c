@@ -50,7 +50,7 @@ void Tela_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
                 Cadastro_Financeiro(lista_fi, lista_co);
                 break;
             case 2:
-                ConsultaMovimentacaoFinanceira(lista, lista_fi);
+                ConsultaMovimentacaoFinanceira(lista_fi, lista_co);
                 break;
             default:
                 return;

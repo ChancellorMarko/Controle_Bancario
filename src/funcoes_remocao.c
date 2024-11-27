@@ -74,7 +74,7 @@ void Remover(Lista *lista, ListaFinanceira *lista_fi, int opcao_lista)
                 {
                     limpar_campo_opcao();
                     gotoxy(7, 23);
-                    printf("Deseja excluir esse cadastro? (1 -S/2 - N): ");
+                    printf("Deseja excluir esse cadastro? [1-S, 2-N]: ");
                     scanf("%d", &resp);
                     if(resp < 1 || resp > 2)
                     {
@@ -145,7 +145,7 @@ void Remover(Lista *lista, ListaFinanceira *lista_fi, int opcao_lista)
                 {
                     limpar_campo_opcao();
                     gotoxy(7, 23);
-                    printf("Deseja excluir esse cadastro? (1 -S/2 - N): ");
+                    printf("Deseja excluir esse cadastro? [1-S, 2-N]: ");
                     scanf("%d", &resp);
                     if(resp < 1 || resp > 2)
                     {
@@ -231,7 +231,7 @@ void Remover(Lista *lista, ListaFinanceira *lista_fi, int opcao_lista)
                 {
                     limpar_campo_opcao();
                     gotoxy(7, 23);
-                    printf("Deseja excluir esse cadastro? (1 -S/2 - N): ");
+                    printf("Deseja excluir esse cadastro? [1-S, 2-N]: ");
                     scanf("%d", &resp);
                     if(resp < 1 || resp > 2)
                     {
