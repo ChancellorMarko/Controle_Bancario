@@ -11,15 +11,12 @@ Descrição: Programa para gerenciamento de varias contas bancarias.
 
 void Consulta_alfabetica(Lista *lista)
 {
-    // Variável usada no algoritmo de ordenação
-    int trocou;
-    int linha;
+    int trocou;  
+    int linha; 
     int x;
     Apontador atual;    // Apontador auxiliar para percorrer a lista
     Apontador novoItem; // Apontador usado para criar um novo nó
 
-    // Desenha a interface da consulta
-    TelaLinhasConsulta();
     tela();
 
     gotoxy(20, 3);
@@ -162,7 +159,6 @@ void Consulta_alfabetica(Lista *lista)
             gotoxy(07, 23);
             printf("Pressione qualquer tecla para continuar...");
             getch();
-            TelaLinhasConsulta();
             // Reinicia a contagem de linhas
             linha = 7;
         }
