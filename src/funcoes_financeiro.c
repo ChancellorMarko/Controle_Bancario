@@ -2,8 +2,8 @@
 Autor: Marcos.
 Data: 15/11/24.
 Membros: 
-    1 - 178292-2024
-    2 - 177020-2024
+    1 - 178292-2024 - Marcos
+    2 - 177020-2024 - Milena
 Descrição: Programa para gerenciamento de varias contas bancarias.
 */
 
@@ -118,7 +118,7 @@ void Cadastro_Financeiro(ListaFinanceira *lista_fi, Lista *lista_co)
             fflush(stdin);
             fgets(temporario.destinatario, 50, stdin);
 
-            // Valor da movimentação    
+            // Valor da movimentação - faltou a verificação de case for inserido valor não esperado
             gotoxy(35, 19);
             scanf("%lf", &temporario.vl_movimento);
 

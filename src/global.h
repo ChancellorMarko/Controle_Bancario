@@ -2,8 +2,8 @@
 Autor: Marcos e Milena.
 Data: 28/10/24.
 Membros: 
-    1 - 178292-2024
-    2 - 177020-2024
+    1 - 178292-2024 - Marcos
+    2 - 177020-2024 - Milena
 Descrição: Programa para gerenciamento de varias contas bancarias.
 */
 

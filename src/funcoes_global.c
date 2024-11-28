@@ -2,8 +2,8 @@
 Autor: Marcos.
 Data: 28/10/24.
 Membros: 
-    1 - 178292-2024
-    2 - 177020-2024
+    1 - 178292-2024 - Marcos
+    2 - 177020-2024 - Milena
 Descrição: Programa para gerenciamento de varias contas bancarias.
 */
 
@@ -489,9 +489,9 @@ int Comparar_Data(char data[11], ItemFinanceiro *conteudo_fi)
                 {
                     return 1;
                 }
-                else if(intDia == intDiaUsr)
+                else
                 {
-                    return 1;
+                    return 0;
                 }
             }
         }    

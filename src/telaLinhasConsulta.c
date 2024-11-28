@@ -2,22 +2,12 @@
 Autor: Milena
 Data: 23/11/24.
 Membros:
-    1 - 178292-2024
-    2 - 177020-2024
+    1 - 178292-2024 - Marcos
+    2 - 177020-2024 - Milena
 Descrição: Programa para gerenciamento de varias contas bancarias.
 */
 
 #include "global.h"
-
-// Função para posicionar o cursor em um determinado ponto da tela
-
-// void gotoxy(int x, int y)
-// {
-//     COORD coord;
-//     coord.X = (short)x;
-//     coord.Y = (short)y;
-//     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-// }
 
 void TelaLinhasConsulta()
 {
